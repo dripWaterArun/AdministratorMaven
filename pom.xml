@@ -6,7 +6,19 @@
 
     <groupId>org.example</groupId>
     <artifactId>AdministratorMaven</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>admin-platform</module>
+        <module>root_common</module>
+        <module>root_module</module>
+        <module>root_plugin</module>
+        <module>root-api</module>
+        <module>root-common</module>
+        <module>root-module</module>
+        <module>root-plugin</module>
+        <module>root-system</module>
+    </modules>
 
 
 </project>
