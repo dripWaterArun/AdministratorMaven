@@ -1,0 +1,47 @@
+#bootstrap.yml 配置文件加载顺序优先于application.yml，用于配置不常改动的内容
+# 项目相关配置
+WenXi:
+  #名称
+  name: WenXi
+  # 版本
+  version: 1.0.0
+  # 版权年份
+  copyrightYear: 2021
+
+#变量名配置（读取环境变量）
+config:
+  #的意思是，先获取环境变量 ADMIN_SERVER，如果不为空，则value等于环境变量 ADMIN_SERVER 的值，否则等于dev。
+  #这样的好处就在于，我们可以在生产环境服务器上配置对应的环境变量，通过环境变量来控制当前环境下，读取哪一个yml文件，
+  #这样的话，就可以直接打包使用，不用修改任何配置。
+  #注：先打开idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${ADMIN_SERVER:prod}
+  app_name: daixu
+  application_name: backend-service-demo-${config.app_name}
+
+#端口号 9089 9090 9099
+server:
+  port: 9089
+
+spring:
+  application:
+    #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符 backend-demo
+    name: aaa
+#  profiles:
+#    #配置数据库连接文件  dev：开发环境   prod：生产环境   druid：数据库配置文件 ${ADMIN_SERVER:prod}
+#    active: daixu
+
+  cloud:
+    nacos:
+      # 配置管理
+      config:
+        server-addr: 82.156.241.68:8848
+        file-extension: properties
+        namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
+        #默认是 spring.application.name 的值，也可以通过 prefix 来配置
+        #prefix: mybatis
+      discovery:
+        # nacos 服务发现 地址
+        server-addr: 82.156.241.68:8848
+        # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
+        namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
+#        # 分组
+#        group: DEFAULT_GROUP

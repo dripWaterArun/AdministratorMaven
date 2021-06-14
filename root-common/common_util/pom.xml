@@ -3,19 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>AdministratorMaven</artifactId>
+        <artifactId>root-common</artifactId>
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>admin-platform</artifactId>
-    <description>平台服务</description>
-    <packaging>pom</packaging>
+    <artifactId>common_util</artifactId>
 
-    <modules>
-        <module>backend-service-demo</module>
-    </modules>
-
-
+    <dependencies>
+        <!--Spring Boot Web Starter-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 </project>

@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>root-common</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>common_util</module>
+    </modules>
 
 
 </project>

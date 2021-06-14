@@ -2,12 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>AdministratorMaven</artifactId>
     <packaging>pom</packaging>
+    <groupId>org.example</groupId>
     <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <description>项目根目录</description>
+    <artifactId>AdministratorMaven</artifactId>
+
     <modules>
         <module>admin-platform</module>
         <module>root-api</module>
@@ -17,5 +19,270 @@
         <module>root-system</module>
     </modules>
 
+    <!--maven 坐标下载网站 https://mvnrepository.com/search?q=flink-walkthrough-datastream-java-->
+    <!--Spring Boot父工程-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!--语义化的版本控制-->
+        <!--2：主版本，第几代-->
+        <!--2：次版本，一些功能的增加，但是架构没有太大的变化，是兼容的-->
+        <!--10：增量版本，bug修复-->
+        <!--release：里程碑
+            SNAPSHOT:开发版
+            M:里程碑
+            RELEASE:正式版
+         -->
+        <version>2.2.10.RELEASE</version>
+    </parent>
+
+    <!-- 自定义属性标签 统一管理jar包版本 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <guava.version>20.0</guava.version>
+        <p6spy.version>3.8.7</p6spy.version>
+        <druid.version>1.1.20</druid.version>
+        <lombok.version>1.16.10</lombok.version>
+        <rocketmq.version>2.1.1</rocketmq.version>
+        <swagger2.version>2.9.2</swagger2.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <nacos.version>2.2.3.RELEASE</nacos.version>
+        <jsqlparser.version>3.1</jsqlparser.version>
+        <activiti.version>7.1.0.M4</activiti.version>
+        <platform.version>Cairo-SR8</platform.version>
+        <freemarker.version>2.3.28</freemarker.version>
+        <txlcn.tc.version>5.0.2.RELEASE</txlcn.tc.version>
+        <mybatis.plus.version>3.3.1</mybatis.plus.version>
+        <httpcomponents.version>4.5.2</httpcomponents.version>
+        <pagehelper.boot.version>1.3.0</pagehelper.boot.version>
+        <swagger2.annotations.version>1.5.22</swagger2.annotations.version>
+        <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
+        <txlcn.txmsg.netty.version>5.0.2.RELEASE</txlcn.txmsg.netty.version>
+    </properties>
+
+    <!--依赖的顺序，越靠前面优先级越高-->
+    <dependencyManagement>
+
+        <dependencies>
+            <!--Spring Cloud Platform-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--Spring Cloud Alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- ################ mybatis-plus start ################ -->
+            <!--idea中下载Mybatis Plugin插件-->
+            <!--mybatis-plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!--mybatis-plus整合spring-boot-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!-- mybatis plus 代码生成器依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!-- mybatis plus 代码生成器模板 -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <!-- ################ mybatis-plus end ################ -->
+
+            <!-- pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.jsqlparser</groupId>
+                <artifactId>jsqlparser</artifactId>
+                <version>${jsqlparser.version}</version>
+            </dependency>
+            <!-- pagehelper 分页插件 -->
+
+            <!-- MySql Driver  MySql驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.java.version}</version>
+            </dependency>
+
+            <!--Alibaba DataBase Connection Pool 阿里巴巴的数据库连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!--分布式 TX-LCN客户端-->
+            <dependency>
+                <groupId>com.codingapi.txlcn</groupId>
+                <artifactId>txlcn-tc</artifactId>
+                <version>${txlcn.tc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.codingapi.txlcn</groupId>
+                <artifactId>txlcn-txmsg-netty</artifactId>
+                <version>${txlcn.txmsg.netty.version}</version>
+            </dependency>
+            <!--分布式 TX-LCN客户端-->
+
+            <!--lombok 插件-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!--fastjson 转json-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!--swagger2-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+
+            <!--防止swagger2 报错 Illegal DefaultValue null for parameter type integer-->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger2.annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger2.annotations.version}</version>
+            </dependency>
+
+            <!--引入高版本guava解决jar包冲突问题-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!--Activiti 7-->
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-spring-boot-starter</artifactId>
+                <version>${activiti.version}</version>
+                <!--移除mybatis 因为和mybatis-plus依赖冲突-->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.activiti.dependencies</groupId>
+                <artifactId>activiti-dependencies</artifactId>
+                <version>${activiti.version}</version>
+                <type>pom</type>
+            </dependency>
+            <!--Activiti 7-->
+
+            <!--其他工具依赖 start -->
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpcomponents.version}</version>
+            </dependency>
+            <!--其他工具依赖 end -->
+
+            <!--p6spy 组件 执行 SQL 分析打印-->
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy.version}</version>
+            </dependency>
+
+            <!--Rocket MQ -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            &lt;!&ndash; 本地开发环境 &ndash;&gt;-->
+<!--            <id>dev</id>-->
+<!--            <properties>-->
+<!--                <profiles.active>dev</profiles.active>-->
+<!--            </properties>-->
+<!--            <activation>-->
+<!--                &lt;!&ndash; 设置默认激活这个配置 &ndash;&gt;-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            &lt;!&ndash; 发布环境 &ndash;&gt;-->
+<!--            <id>release</id>-->
+<!--            <properties>-->
+<!--                <profiles.active>release</profiles.active>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            &lt;!&ndash; 测试环境 &ndash;&gt;-->
+<!--            <id>beta</id>-->
+<!--            <properties>-->
+<!--                <profiles.active>beta</profiles.active>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--    </profiles>-->
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-war-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>

@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>root-system</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>system-config</module>
+    </modules>
 
 
 </project>
