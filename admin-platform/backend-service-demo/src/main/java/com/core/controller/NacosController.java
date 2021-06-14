@@ -14,8 +14,16 @@ public class NacosController {
     @Value("${useLocalCache:false}")
     private boolean useLocalCache;
 
+    @Value("${user}")
+    private String user;
+
     @GetMapping("/get")
     public boolean get() {
         return useLocalCache;
+    }
+
+    @GetMapping("/get2")
+    public String get2() {
+        return user;
     }
 }

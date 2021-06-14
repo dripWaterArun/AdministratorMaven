@@ -37,7 +37,7 @@ spring:
         file-extension: properties
         namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
         #默认是 spring.application.name 的值，也可以通过 prefix 来配置
-        #prefix: mybatis
+        prefix: aaa
       discovery:
         # nacos 服务发现 地址
         server-addr: 82.156.241.68:8848
@@ -45,3 +45,5 @@ spring:
         namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
 #        # 分组
 #        group: DEFAULT_GROUP
+
+user:
