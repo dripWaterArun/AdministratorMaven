@@ -34,10 +34,21 @@ spring:
       # 配置管理
       config:
         server-addr: 82.156.241.68:8848
-        file-extension: properties
+        #file-extension: yaml
         namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
         #默认是 spring.application.name 的值，也可以通过 prefix 来配置
-        prefix: aaa
+        #prefix: backend-demo-daixu,mybatis
+        #添加多个配置文件
+        extension-configs:
+          - data-id: backend-demo-daixu.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+
+          - data-id: mybatis.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+#        shared-configs:
+#          - data-id
       discovery:
         # nacos 服务发现 地址
         server-addr: 82.156.241.68:8848
@@ -46,4 +57,4 @@ spring:
 #        # 分组
 #        group: DEFAULT_GROUP
 
-user:
+unt: abc

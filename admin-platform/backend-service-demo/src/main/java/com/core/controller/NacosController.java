@@ -11,19 +11,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/nacos")
 public class NacosController {
 
-    @Value("${useLocalCache:false}")
-    private boolean useLocalCache;
+    @Value("${your.configuration}")
+    private String useLocalCache;
 
-    @Value("${user}")
-    private String user;
+//    @Value("${user}")
+//    private String user;
+
+    @Value("${config}")
+    private String config;
 
     @GetMapping("/get")
-    public boolean get() {
+    public String get() {
         return useLocalCache;
     }
 
-    @GetMapping("/get2")
-    public String get2() {
-        return user;
+//    @GetMapping("/get2")
+//    public String get2() {
+//        return user;
+//    }
+
+    @GetMapping("/get3")
+    public String get3() {
+        return config;
     }
 }
