@@ -288,6 +288,14 @@
                 <profileActive>prod</profileActive>
             </properties>
         </profile>
+
+        <!-- 本地环境 -->
+        <profile>
+            <id>localhost</id>
+            <properties>
+                <profileActive>${env.SERVICE_HOME}</profileActive>
+            </properties>
+        </profile>
     </profiles>
 
 <!--    <build>-->

@@ -13,48 +13,31 @@ config:
   #的意思是，先获取环境变量 ADMIN_SERVER，如果不为空，则value等于环境变量 ADMIN_SERVER 的值，否则等于dev。
   #这样的好处就在于，我们可以在生产环境服务器上配置对应的环境变量，通过环境变量来控制当前环境下，读取哪一个yml文件，
   #这样的话，就可以直接打包使用，不用修改任何配置。
-  #注：先打开idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${ADMIN_SERVER:prod}
-  app_name: daixu
+  #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${ADMIN_SERVER:prod}
+  app_name: ${SERVICE_HOME:pro}
   application_name: backend-service-demo-${config.app_name}
 
-#端口号 9089 9090 9099
+#端口号
 server:
   port: 9089
 
 spring:
   application:
-    #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符 backend-demo
-    name: aaa
-#  profiles:
-#    #配置数据库连接文件  dev：开发环境   prod：生产环境   druid：数据库配置文件 ${ADMIN_SERVER:prod}
-#    active: daixu
+    #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
+    name: ${config.application_name}
+  profiles:
+    #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境）
+    active: @profileActive@
 
   cloud:
     nacos:
-      # 配置管理
       config:
-        server-addr: 82.156.241.68:8848
+        # 关闭默认访问本地 nacos
+        enabled: false
         #file-extension: yaml
-        namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
         #默认是 spring.application.name 的值，也可以通过 prefix 来配置
         #prefix: backend-demo-daixu,mybatis
-        #添加多个配置文件
-        extension-configs:
-          - data-id: backend-demo-daixu.yaml
-            group: DEFAULT_GROUP
-            refresh: true
-
-          - data-id: mybatis.yaml
-            group: DEFAULT_GROUP
-            refresh: true
-#        shared-configs:
-#          - data-id
-      discovery:
         # nacos 服务发现 地址
-        server-addr: 82.156.241.68:8848
+        server-addr: ${config.nacos.config.addr}
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-        namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
-#        # 分组
-#        group: DEFAULT_GROUP
-
-unt: abc
+        namespace: ${config.nacos.config.namespace}

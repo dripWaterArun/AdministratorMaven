@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    nacos:
+      # 配置管理
+      config:
+        #添加多个配置文件
+        extension-configs:
+#          - data-id: backend-demo-daixu.yaml
+#            group: DEFAULT_GROUP
+#            refresh: true
+
+          - data-id: mybatis.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+      #        shared-configs:
+      #          - data-id
+      discovery:
+        # 关闭默认访问本地 nacos
+        enabled: false
+        # nacos 服务发现 地址
+        server-addr: ${config.nacos.discovery.addr}
+        # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
+        namespace: ${config.nacos.discovery.namespace}
+#          # 分组
+#          group: DEFAULT_GROUP

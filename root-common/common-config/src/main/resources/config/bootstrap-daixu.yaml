@@ -1,0 +1,12 @@
+# 本地环境
+config:
+  ######### Nacos #########
+  nacos:
+    # 配置中心
+    config:
+      addr: 82.156.241.68:8848
+      namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
+    # 注册中心
+    discovery:
+      addr: 82.156.241.68:8848
+      namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
