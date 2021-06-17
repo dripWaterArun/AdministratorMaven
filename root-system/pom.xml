@@ -12,7 +12,6 @@
     <artifactId>root-system</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>system-config</module>
     </modules>
 
 
