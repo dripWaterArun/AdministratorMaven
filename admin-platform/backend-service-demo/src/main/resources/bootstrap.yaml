@@ -15,7 +15,7 @@ config:
   #这样的话，就可以直接打包使用，不用修改任何配置。
   #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${ADMIN_SERVER:prod}
   app_name: ${SERVICE_HOME:pro}
-  application_name: backend-service-demo-${config.app_name}
+  application_name: platform-backend-demo-${config.app_name}
 
 #端口号
 server:
@@ -27,17 +27,29 @@ spring:
     name: ${config.application_name}
   profiles:
     #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境）
-    active: @profileActive@
+    active: @profileActive@,config
 
   cloud:
     nacos:
       config:
-        # 关闭默认访问本地 nacos
-        enabled: false
+        # 是否开启配置中心 默认 true
+        enabled: true
         #file-extension: yaml
         #默认是 spring.application.name 的值，也可以通过 prefix 来配置
         #prefix: backend-demo-daixu,mybatis
         # nacos 服务发现 地址
-        server-addr: ${config.nacos.config.addr}
+        server-addr: ${configs.nacos.config.addr}
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-        namespace: ${config.nacos.config.namespace}
+        namespace: ${configs.nacos.config.namespace}
+        # 用于共享的配置文件
+        shared-configs:
+          # Mybatis-plus 配置文件
+          - data-id: ${nacos.configs.shared.mybatis}
+            group: ${nacos.configs.shared.mybatis-group}
+            refresh: ${nacos.configs.shared.mybatis-refresh}
+        # 优先级大于 shared-configs，在 shared-configs 之后加载
+        extension-configs:
+          # 基础配置文件
+          - data-id: ${nacos.configs.extension.base}
+            group: ${nacos.configs.extension.base-group}
+            refresh: ${nacos.configs.extension.base-refresh}

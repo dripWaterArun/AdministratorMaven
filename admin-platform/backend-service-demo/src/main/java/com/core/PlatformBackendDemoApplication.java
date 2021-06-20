@@ -1,8 +1,6 @@
 package com.core;//import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -18,10 +16,10 @@ import org.springframework.web.client.RestTemplate;
 //@EnableSwagger2
 @SpringBootApplication
 @EnableFeignClients//(defaultConfiguration = FeignConfiguration.class)
-public class PlatformServiceDemoApplication {
+public class PlatformBackendDemoApplication {
     public static void main(String[] args) {
         //AutoProperties.init();//通过反射加载配置文件中的内容,赋值给常量
-        SpringApplication.run(PlatformServiceDemoApplication.class,args);
+        SpringApplication.run(PlatformBackendDemoApplication.class,args);
         System.out.println("(♥◠‿◠)ﾉﾞ  文曦启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 " .-------.       ____     __        \n" +
                 " |  _ _   \\      \\   \\   /  /    \n" +

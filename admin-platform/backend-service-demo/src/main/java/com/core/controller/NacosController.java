@@ -14,8 +14,8 @@ public class NacosController {
 //    @Value("${your.configuration}")
 //    private String useLocalCache;
 //
-//    @Value("${user}")
-//    private String user;
+//    @Value("${yours}")
+//    private String yours;
 //
 //    @Value("${config}")
 //    private String config;
@@ -27,7 +27,7 @@ public class NacosController {
 //
 //    @GetMapping("/get2")
 //    public String get2() {
-//        return user;
+//        return yours;
 //    }
 //
 //    @GetMapping("/get3")

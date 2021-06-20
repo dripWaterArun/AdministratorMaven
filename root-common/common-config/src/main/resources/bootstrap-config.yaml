@@ -1,0 +1,14 @@
+# Nacos 配置管理
+nacos:
+  configs:
+    # 基础配置文件
+    extension:
+      base: nacos-config-base.yaml
+      base-group: DEFAULT_GROUP
+      base-refresh: true
+    # 共享的配置文件
+    shared:
+      # Mybatis-plus 配置文件
+      mybatis: mybatis-plus.yaml
+      mybatis-group: DEFAULT_GROUP
+      mybatis-refresh: true
