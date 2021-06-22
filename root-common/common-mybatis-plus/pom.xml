@@ -42,8 +42,8 @@
 
         <!--注入日志log-->
         <dependency>
-            <groupId>com.core</groupId>
-            <artifactId>element_common_logs</artifactId>
+            <groupId>org.example</groupId>
+            <artifactId>common-log</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
