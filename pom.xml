@@ -38,7 +38,6 @@
 
     <!-- 自定义属性标签 统一管理jar包版本 -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <guava.version>20.0</guava.version>
         <p6spy.version>3.8.7</p6spy.version>
         <druid.version>1.1.20</druid.version>
@@ -55,9 +54,11 @@
         <mybatis.plus.version>3.3.1</mybatis.plus.version>
         <httpcomponents.version>4.5.2</httpcomponents.version>
         <pagehelper.boot.version>1.3.0</pagehelper.boot.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger2.annotations.version>1.5.22</swagger2.annotations.version>
         <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
         <txlcn.txmsg.netty.version>5.0.2.RELEASE</txlcn.txmsg.netty.version>
+        <knife4j-spring-boot-starter-version>2.0.4</knife4j-spring-boot-starter-version>
     </properties>
 
     <!--依赖的顺序，越靠前面优先级越高-->
@@ -187,6 +188,7 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger2.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -244,11 +246,11 @@
             <!--其他工具依赖 end -->
 
             <!--p6spy 组件 执行 SQL 分析打印-->
-            <dependency>
-                <groupId>p6spy</groupId>
-                <artifactId>p6spy</artifactId>
-                <version>${p6spy.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>p6spy</groupId>-->
+<!--                <artifactId>p6spy</artifactId>-->
+<!--                <version>${p6spy.version}</version>-->
+<!--            </dependency>-->
 
             <!--Rocket MQ -->
             <dependency>
@@ -297,21 +299,5 @@
             </properties>
         </profile>
     </profiles>
-
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <fork>true</fork>-->
-<!--                    <addResources>true</addResources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-
-<!--    </build>-->
-
-
 
 </project>

@@ -9,10 +9,11 @@ import org.springframework.web.filter.CorsFilter;
 /**
  * 跨域配置
  * @author daixu
+ * @date 2021-06-22
  */
 @Configuration
 public class CorsConfig {
-	
+
 	private CorsConfiguration buildConfig() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		// 1允许任何域名使用
@@ -23,7 +24,7 @@ public class CorsConfig {
 		corsConfiguration.addAllowedMethod("*");
 		return corsConfiguration;
 	}
-	
+
 	/**
 	 * 跨域过滤器
 	 * @return
