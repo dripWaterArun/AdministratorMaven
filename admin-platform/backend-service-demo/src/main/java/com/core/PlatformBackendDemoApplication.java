@@ -6,30 +6,29 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
-//import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 测试案例 启动类
  * @EnableAsync 开启异步调用 使用配置文件修改常量
+ * @author daixu
+ * @date 2021-06-23
  */
 @EnableAsync
-//@EnableSwagger2
+@EnableSwagger2
 @SpringBootApplication
 @EnableFeignClients//(defaultConfiguration = FeignConfiguration.class)
 public class PlatformBackendDemoApplication {
     public static void main(String[] args) {
-        //AutoProperties.init();//通过反射加载配置文件中的内容,赋值给常量
         SpringApplication.run(PlatformBackendDemoApplication.class,args);
-        System.out.println("(♥◠‿◠)ﾉﾞ  文曦启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
-                " .-------.       ____     __        \n" +
-                " |  _ _   \\      \\   \\   /  /    \n" +
-                " | ( ' )  |       \\  _. /  '       \n" +
-                " |(_ o _) /        _( )_ .'         \n" +
-                " | (_,_).' __  ___(_ o _)'          \n" +
-                " |  |\\ \\  |  ||   |(_,_)'         \n" +
-                " |  | \\ `'   /|   `-'  /           \n" +
-                " |  |  \\    /  \\      /           \n" +
-                " ''-'   `'-'    `-..-'              ");
+        System.out.println("(♥◠‿◠)ﾉﾞ  案例模块启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
+                "  _________ __                 __      _________                                          _____     .__  .__         \n" +
+                " /   _____//  |______ ________/  |_   /   _____/__ __   ____  ____  ____   ______ _______/ ____\\_ __|  | |  | ___.__.\n" +
+                " \\_____  \\\\   __\\__  \\\\_  __ \\   __\\  \\_____  \\|  |  \\_/ ___\\/ ___\\/ __ \\ /  ___//  ___/\\   __\\  |  \\  | |  |<   |  |\n" +
+                " /        \\|  |  / __ \\|  | \\/|  |    /        \\  |  /\\  \\__\\  \\__\\  ___/ \\___ \\ \\___ \\  |  | |  |  /  |_|  |_\\___  |\n" +
+                "/_______  /|__| (____  /__|   |__|   /_______  /____/  \\___  >___  >___  >____  >____  > |__| |____/|____/____/ ____|\n" +
+                "        \\/           \\/                      \\/            \\/    \\/    \\/     \\/     \\/                       \\/"
+        );
     }
 
     /**

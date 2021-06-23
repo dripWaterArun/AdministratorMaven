@@ -1,12 +1,4 @@
 #bootstrap.yml 配置文件加载顺序优先于application.yml，用于配置不常改动的内容
-# 项目相关配置
-WenXi:
-  #名称
-  name: WenXi
-  # 版本
-  version: 1.0.0
-  # 版权年份
-  copyrightYear: 2021
 
 #变量名配置（读取环境变量）
 config:
