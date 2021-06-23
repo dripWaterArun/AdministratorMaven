@@ -1,5 +1,5 @@
-name: ${project.name}
-version: ${project.version}
+Application Name: ${project.name}
+Application Version: ${project.version}
 ////////////////////////////////////////////////////////////////////
 //                          _ooOoo_                               //
 //                         o8888888o                              //
@@ -22,5 +22,5 @@ version: ${project.version}
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        //
 //             佛祖保佑       永不宕机      永无BUG                   //
 ////////////////////////////////////////////////////////////////////
-${AnsiColor.BRIGHT_YELLOW} :: Spring Boot ::         ${AnsiColor.BRIGHT_CYAN} (${spring-boot.version})
+${AnsiColor.BRIGHT_YELLOW} :: Spring Boot Version ::         ${AnsiColor.BRIGHT_CYAN} (${spring-boot.version})
 ${AnsiColor.BLUE}
