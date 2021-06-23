@@ -28,23 +28,27 @@
         </dependency>
         <!-- ################ mybatis-plus end ################ -->
 
-        <!-- MySql Driver  MySql驱动-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <!--Alibaba DataBase Connection Pool 阿里巴巴的数据库连接池-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
-
         <!--注入日志log-->
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>common-log</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--注入数据源-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-datasource</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--p6spy 组件 执行 SQL 分析打印-->
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <optional>true</optional>
         </dependency>
 
     </dependencies>

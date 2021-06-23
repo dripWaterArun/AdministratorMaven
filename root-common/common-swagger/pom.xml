@@ -9,10 +9,11 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>common_swagger</artifactId>
-    <description>swagger 在线文档</description>
+    <description>swagger 文档</description>
+    <artifactId>common-swagger</artifactId>
 
     <dependencies>
+
         <!--swagger2-->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -32,5 +33,6 @@
             <groupId>io.swagger</groupId>
             <artifactId>swagger-models</artifactId>
         </dependency>
+
     </dependencies>
 </project>

@@ -9,16 +9,98 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <description>项目共通配置</description>
     <artifactId>common-config</artifactId>
 
     <dependencies>
-        <!--Spring Boot Web Starter-->
+
+        <!--Spring Boot Web Starter springMvc整合 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!-- 依赖不传递 -->
-            <optional>true</optional>
         </dependency>
+
+        <!-- springCloud -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!--springboot 热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <!--表示dependency不作用在编译时，但会作用在运行和测试时，如JDBC驱动，适用运行和测试阶段。-->
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--注册中心 Nacos-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!--Nacos-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${nacos.version}</version>
+        </dependency>
+
+        <!--解决 Nacos 总是注册到 public 命名空间-->
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+        </dependency>
+
+        <!-- yaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+
+        <!--共通 api-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>module-api-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--注入数据源-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-datasource</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--注入数据权限-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-datascope</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--注入 swagger -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-swagger</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--注入 mybatis-plus -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-mybatis-plus</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--工具类 util -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
 </project>

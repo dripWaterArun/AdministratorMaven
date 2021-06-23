@@ -8,14 +8,16 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-//import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 
 /**
- * 处理新增和更新的基础数据填充，配合BaseEntity和MyBatisPlusConfig使用
- * 自动填充创建时间和修改时间
+ * 处理新增和更新的基础数据填充:
+ * 配合BaseEntity和MyBatisPlusConfig使用,自动填充创建时间和修改时间
+ * @author daixu
+ * @date 2021-6-23
  */
 
-//@Slf4j
+@Slf4j
 @Component
 public class MetaHandler implements MetaObjectHandler {
     private static final Logger logger = LoggerFactory.getLogger(MetaHandler.class);

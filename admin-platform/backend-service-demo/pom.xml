@@ -13,79 +13,13 @@
     <artifactId>backend-service-demo</artifactId>
 
     <dependencies>
-        <!--Spring Boot Web Starter springMvc整合-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!--配置中心客户端-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-config-client</artifactId>-->
-<!--        </dependency>-->
-
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>common_util</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <!--springboot 热部署-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-devtools</artifactId>-->
-<!--            &lt;!&ndash;表示dependency不作用在编译时，但会作用在运行和测试时，如JDBC驱动，适用运行和测试阶段。&ndash;&gt;-->
-<!--            <scope>runtime</scope>-->
-<!--            &lt;!&ndash; 表示依赖不会传递 &ndash;&gt;-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
-
-        <!--p6spy 组件 执行 SQL 分析打印-->
-        <!--        <dependency>-->
-        <!--            <groupId>p6spy</groupId>-->
-        <!--            <artifactId>p6spy</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
-
-        <!--注册中心 Nacos-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!--Nacos-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <optional>true</optional>
-            <version>${nacos.version}</version>
-        </dependency>
-
-        <!--解决 Nacos 总是注册到 public 命名空间-->
-        <dependency>
-            <groupId>com.alibaba.nacos</groupId>
-            <artifactId>nacos-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-        </dependency>
 
         <!--配置中心-->
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>common-config</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
         </dependency>
 
     </dependencies>
@@ -128,25 +62,6 @@
 
         <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
         <resources>
-<!--            <resource>-->
-<!--                <directory>src/main/java</directory>-->
-<!--                <includes>-->
-<!--                    <include>**/*.xml</include>-->
-<!--                    <include>**/*.yml</include>-->
-<!--                    <include>**/*.properties</include>-->
-<!--                </includes>-->
-<!--                <filtering>false</filtering>-->
-<!--            </resource>-->
-<!--            <resource>-->
-<!--                <directory>src/main/resources</directory>-->
-<!--                <includes>-->
-<!--                    <include>**/*.xml</include>-->
-<!--                    <include>**/*.yml</include>-->
-<!--                    <include>**/*.yaml</include>-->
-<!--                    <include>**/*.properties</include>-->
-<!--                </includes>-->
-<!--                <filtering>false</filtering>-->
-<!--            </resource>-->
             <!--配置可以读取 pom 文件变量-->
             <resource>
                 <directory>src/main/resources</directory>
@@ -157,7 +72,6 @@
                 <!--开启过滤，用指定的参数替换directory下的文件中的参数-->
                 <filtering>true</filtering>
             </resource>
-
         </resources>
 
     </build>

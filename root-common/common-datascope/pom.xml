@@ -3,21 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>module-api-pojo</artifactId>
+        <artifactId>root-common</artifactId>
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <description>案例模块实体类</description>
-    <artifactId>platform-backend-demo</artifactId>
 
-    <dependencies>
-        <!--lombok 插件-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
+    <modelVersion>4.0.0</modelVersion>
+    <description>数据库权限模块</description>
+    <artifactId>common-datascope</artifactId>
+
 
 </project>

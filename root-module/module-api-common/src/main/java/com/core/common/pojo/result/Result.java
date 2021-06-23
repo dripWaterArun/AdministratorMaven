@@ -1,7 +1,7 @@
 package com.core.common.pojo.result;
 
 //import com.fasterxml.jackson.databind.ObjectMapper;
-import com.core.common.enums.StatusCodeEnum;
+import com.core.common.enums.ResultCode;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -87,16 +87,16 @@ public class Result<T> implements Serializable {
      * 执行成功（增删改）
      */
     public void ok() {
-        this.Code = StatusCodeEnum.SCUUESS.getValue();
-        this.message = StatusCodeEnum.SCUUESS.getDesc();
+        this.Code = ResultCode.SCUUESS.getCode();
+        this.message = ResultCode.SCUUESS.getDisplay();
     }
 
     /**
      * 执行失败（增删改）
      */
     public void error() {
-        this.Code = StatusCodeEnum.FAILED.getValue();
-        this.message = StatusCodeEnum.FAILED.getDesc();
+        this.Code = ResultCode.FAILED.getCode();
+        this.message = ResultCode.FAILED.getDisplay();
     }
 
     /**
@@ -118,8 +118,8 @@ public class Result<T> implements Serializable {
      * @param data
      */
     public void ok(T data) {
-        this.Code = StatusCodeEnum.SCUUESS.getValue();
-        this.message = StatusCodeEnum.SCUUESS.getDesc();
+        this.Code = ResultCode.SCUUESS.getCode();
+        this.message = ResultCode.SCUUESS.getDisplay();
         this.data = data;
     }
 
@@ -130,8 +130,8 @@ public class Result<T> implements Serializable {
      * @param data
      */
     public void error(T data) {
-        this.Code = StatusCodeEnum.FAILED.getValue();
-        this.message = StatusCodeEnum.FAILED.getDesc();
+        this.Code = ResultCode.FAILED.getCode();
+        this.message = ResultCode.FAILED.getDisplay();
         this.data = data;
     }
 

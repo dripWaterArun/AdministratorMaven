@@ -12,11 +12,6 @@
     <artifactId>common-log</artifactId>
 
     <dependencies>
-        <!--lombok 插件-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
 
         <!--Spring Boot Web Starter-->
         <dependency>
@@ -24,6 +19,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--lombok 插件-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -11,22 +11,28 @@
 
     <artifactId>root-common</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>common-util</module>
         <module>common-config</module>
         <module>common-swagger</module>
         <module>common-mybatis-plus</module>
         <module>common-log</module>
+        <module>common-datascope</module>
+        <module>common-datasource</module>
     </modules>
 
-    <dependencies>
-        <!--Spring Boot Web Starter-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <!-- 依赖不传递 -->
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <!-- 自动管理jar包版本依赖 -->
+        <dependencies>
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>${platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
