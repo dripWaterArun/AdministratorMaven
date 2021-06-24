@@ -19,7 +19,7 @@ spring:
     name: ${config.application_name}
   profiles:
     #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境）
-    active: @profileActive@,config
+    active: config,@profileActive@
 
   cloud:
     nacos:
@@ -36,12 +36,24 @@ spring:
         # 用于共享的配置文件
         shared-configs:
           # Mybatis-plus 配置文件
-          - data-id: ${nacos.configs.shared.mybatis}
-            group: ${nacos.configs.shared.mybatis-group}
-            refresh: ${nacos.configs.shared.mybatis-refresh}
+          - data-id: ${configs.nacos.shared.mybatis}
+            group: ${configs.nacos.shared.mybatis-group}
+            refresh: ${configs.nacos.shared.mybatis-refresh}
+          # druid 数据库连接池
+          - data-id: ${configs.nacos.shared.druid}
+            group: ${configs.nacos.shared.druid-group}
+            refresh: ${configs.nacos.shared.druid-refresh}
+          # platform-demo-datasource 模块 数据库配置
+          - data-id: ${configs.nacos.shared.demo}
+            group: ${configs.nacos.shared.demo-group}
+            refresh: ${configs.nacos.shared.demo-refresh}
         # 优先级大于 shared-configs，在 shared-configs 之后加载
         extension-configs:
           # 基础配置文件
-          - data-id: ${nacos.configs.extension.base}
-            group: ${nacos.configs.extension.base-group}
-            refresh: ${nacos.configs.extension.base-refresh}
+          - data-id: ${configs.nacos.extension.base}
+            group: ${configs.nacos.extension.base-group}
+            refresh: ${configs.nacos.extension.base-refresh}
+          #数据库基本配置
+          - data-id: ${configs.nacos.extension.druid}
+            group: ${configs.nacos.extension.druid-group}
+            refresh: ${configs.nacos.extension.druid-refresh}

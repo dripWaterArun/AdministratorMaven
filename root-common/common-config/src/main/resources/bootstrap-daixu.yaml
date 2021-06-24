@@ -1,12 +1,30 @@
-# 本地环境
+################### 本地环境 ###################
 configs:
-  ######### Nacos #########
+  ################### 数据库相关配置 ###################
+  datasource:
+    # 案例展示模块
+    platform-demo:
+      address: 82.156.241.68
+      username: root
+      password: 123456
+
+  ################### Nacos ###################
   nacos:
     # 配置中心
     config:
+      # nacos 配置中心 地址
       addr: 82.156.241.68:8848
+      # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
       namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
     # 注册中心
     discovery:
+      # nacos 注册中心 地址
       addr: 82.156.241.68:8848
+      # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
       namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
+    # 基础配置
+    extension:
+      # 基础配置文件
+      base: nacos-config-localhost.yaml
+      base-group: DEFAULT_GROUP
+      base-refresh: true

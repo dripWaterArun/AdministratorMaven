@@ -8,16 +8,35 @@ project:
   copyrightYear: 2021
 
 # Nacos 配置管理
-nacos:
-  configs:
-    # 基础配置文件
-    extension:
-      base: nacos-config-base.yaml
-      base-group: DEFAULT_GROUP
-      base-refresh: true
-    # 共享的配置文件
+configs:
+  nacos:
+    ################### 共享的配置文件 ###################
+    # Nacos 配置文件 加载顺序
+    #1、后加载的优先级高；
+    #2、extension-configs 优先级大于 shared-configs，因为在 shared-configs 之后加载
+    #3、shared-configs 与 extension-configs 的配置列表中，在下面的配置优先级高。
     shared:
       # Mybatis-plus 配置文件
       mybatis: mybatis-plus.yaml
       mybatis-group: DEFAULT_GROUP
       mybatis-refresh: true
+      # druid 数据库连接池
+      druid: druid.yaml
+      druid-group: DEFAULT_GROUP
+      druid-refresh: true
+      # platform-demo-datasource 模块 数据库配置
+      demo: platform-demo-datasource.yaml
+      demo-group: DEFAULT_GROUP
+      demo-refresh: true
+
+    ################### 基础配置文件 ###################
+    # 优先级大于 shared-configs，在 shared-configs 之后加载
+    extension:
+      # 基本配置
+      base: nacos-config-base.yaml
+      base-group: DEFAULT_GROUP
+      base-refresh: true
+      # 数据库基本配置
+      druid: nacos-config-datasource.yaml
+      druid-group: DEFAULT_GROUP
+      druid-refresh: true
