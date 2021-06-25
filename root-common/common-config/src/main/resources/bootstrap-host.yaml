@@ -4,9 +4,14 @@ configs:
   datasource:
     # 案例展示模块
     platform-demo:
+      database: platform-demo
       address: 82.156.241.68
       username: root
       password: 123456
+
+  # logging 相关配置
+  logging:
+    level: DEBUG
 
   ################### Nacos ###################
   nacos:
