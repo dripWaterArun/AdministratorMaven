@@ -1,12 +1,34 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        # 优先级大于 shared-configs，在 shared-configs 之后加载
+        extension-configs:
+          # 基础配置文件
+          - data-id: ${configs.nacos.extension.base}
+            group: ${configs.nacos.extension.base-group}
+            refresh: ${configs.nacos.extension.base-refresh}
+          #数据库基本配置
+          - data-id: ${configs.nacos.extension.database}
+            group: ${configs.nacos.extension.database-group}
+            refresh: ${configs.nacos.extension.database-refresh}
+          #数据库基本配置
+          - data-id: ${configs.nacos.extension.druid}
+            group: ${configs.nacos.extension.druid-group}
+            refresh: ${configs.nacos.extension.druid-refresh}
 # 开发环境
 configs:
   ######### Nacos #########
   nacos:
     # 配置中心
     config:
+      # nacos 配置中心 地址
       addr: 82.156.241.68:8848
+      # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
       namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
     # 注册中心
     discovery:
+      # nacos 注册中心 地址
       addr: 82.156.241.68:8848
+      # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
       namespace: fef0092c-d406-49bd-80c0-b3414ee839d0

@@ -1,0 +1,9 @@
+################### 本地环境 数据库相关配置 ###################
+configs:
+  datasource:
+    ################### 案例展示模块 ###################
+    platform-demo:
+      database: platform-demo
+      address: 82.156.241.68
+      username: root
+      password: 123456

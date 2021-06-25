@@ -47,13 +47,3 @@ spring:
           - data-id: ${configs.nacos.shared.demo}
             group: ${configs.nacos.shared.demo-group}
             refresh: ${configs.nacos.shared.demo-refresh}
-        # 优先级大于 shared-configs，在 shared-configs 之后加载
-        extension-configs:
-          # 基础配置文件
-          - data-id: ${configs.nacos.extension.base}
-            group: ${configs.nacos.extension.base-group}
-            refresh: ${configs.nacos.extension.base-refresh}
-          #数据库基本配置
-          - data-id: ${configs.nacos.extension.druid}
-            group: ${configs.nacos.extension.druid-group}
-            refresh: ${configs.nacos.extension.druid-refresh}

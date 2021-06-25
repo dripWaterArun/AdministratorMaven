@@ -4,7 +4,7 @@ spring:
       #添加多个配置文件
       discovery:
         # 关闭默认访问本地 nacos
-        enabled: true
+        enabled: false
         # nacos 服务发现 地址
         server-addr: ${configs.nacos.discovery.addr}
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来

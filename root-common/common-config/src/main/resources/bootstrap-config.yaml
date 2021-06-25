@@ -28,7 +28,6 @@ configs:
       demo: platform-demo-datasource.yaml
       demo-group: DEFAULT_GROUP
       demo-refresh: true
-
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
@@ -37,6 +36,10 @@ configs:
       base-group: DEFAULT_GROUP
       base-refresh: true
       # 数据库基本配置
+      database: nacos-config-database.yaml
+      database-group: DEFAULT_GROUP
+      database-refresh: true
+      # 数据库共通配置
       druid: nacos-config-datasource.yaml
       druid-group: DEFAULT_GROUP
       druid-refresh: true
