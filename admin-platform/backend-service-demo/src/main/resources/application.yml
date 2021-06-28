@@ -11,3 +11,20 @@ spring:
         namespace: ${configs.nacos.discovery.namespace}
         # 分组（默认分组）
         group: DEFAULT_GROUP
+
+configs:
+  swagger:
+    # 文档标题
+    title: 案例展示模块 swagger 接口文档
+    # 电子邮箱
+    email: daixu_cisco@sina.cn
+    # 作者
+    author: daixu
+    # 版本号
+    version: 1.1
+    # 描述
+    description: 接口案例展示
+
+
+
+

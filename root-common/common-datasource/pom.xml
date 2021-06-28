@@ -13,6 +13,13 @@
 
     <dependencies>
 
+        <!--Spring Boot Web Starter springMvc整合 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- MySql Driver  MySql驱动-->
         <dependency>
             <groupId>mysql</groupId>

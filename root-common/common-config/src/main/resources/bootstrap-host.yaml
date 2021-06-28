@@ -33,3 +33,9 @@ configs:
   logging:
     level: DEBUG
 ################### log 日志 end ###################
+
+################### Swagger 配置 start ###################
+  swagger:
+    # 是否开启swagger
+    enabled: true
+################### Swagger 配置 end ###################
