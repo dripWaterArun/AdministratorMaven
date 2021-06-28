@@ -7,6 +7,7 @@
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <description>实体类</description>
     <artifactId>module-api-pojo</artifactId>
@@ -15,5 +16,14 @@
     <modules>
         <module>platform-backend-demo</module>
     </modules>
+
+    <dependencies>
+        <!--lombok 插件-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
 </project>
