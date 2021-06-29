@@ -1,0 +1,49 @@
+#bootstrap.yml 配置文件加载顺序优先于application.yml，用于配置不常改动的内容
+
+#变量名配置（读取环境变量）
+config:
+  #的意思是，先获取环境变量 ADMIN_SERVER，如果不为空，则value等于环境变量 ADMIN_SERVER 的值，否则等于dev。
+  #这样的好处就在于，我们可以在生产环境服务器上配置对应的环境变量，通过环境变量来控制当前环境下，读取哪一个yml文件，
+  #这样的话，就可以直接打包使用，不用修改任何配置。
+  #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${ADMIN_SERVER:prod}
+  app_name: ${SERVICE_HOME:pro}
+  application_name: platform-api-sso-${config.app_name}
+
+#端口号
+server:
+  port: 9090
+
+spring:
+  application:
+    #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
+    name: ${config.application_name}
+  profiles:
+    #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境）
+    active: config,@profileActive@
+
+  cloud:
+    nacos:
+      config:
+        # 是否开启配置中心 默认 true
+        enabled: true
+        #file-extension: yaml
+        #默认是 spring.application.name 的值，也可以通过 prefix 来配置
+        #prefix: backend-demo-daixu,mybatis
+        # nacos 服务发现 地址
+        server-addr: ${configs.nacos.config.addr}
+        # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
+        namespace: ${configs.nacos.config.namespace}
+        # 用于共享的配置文件
+        shared-configs:
+          # Mybatis-plus 配置文件
+          - data-id: ${configs.nacos.shared.mybatis}
+            group: ${configs.nacos.shared.mybatis-group}
+            refresh: ${configs.nacos.shared.mybatis-refresh}
+          # druid 数据库连接池
+          - data-id: ${configs.nacos.shared.druid}
+            group: ${configs.nacos.shared.druid-group}
+            refresh: ${configs.nacos.shared.druid-refresh}
+          # platform-demo-datasource 模块 数据库配置
+          - data-id: ${configs.nacos.shared.demo}
+            group: ${configs.nacos.shared.demo-group}
+            refresh: ${configs.nacos.shared.demo-refresh}

@@ -25,7 +25,7 @@ public class BackendDemoController {
      * @date 2021-06-28
      */
     @GetMapping("/demo")
-    @ApiOperation(value = "查询测试详情（分页查询）",notes="daixu")
+    @ApiOperation(value = "查询测试详情（分页查询）",notes="@author daixu @date 2021-06-28")
     public String listDemo(){
         return "nihao";
     }
