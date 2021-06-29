@@ -12,8 +12,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @ConfigurationProperties("configs.swagger")
-public class SwaggerProperties
-{
+public class SwaggerProperties {
     /**
      * 标题
      **/
