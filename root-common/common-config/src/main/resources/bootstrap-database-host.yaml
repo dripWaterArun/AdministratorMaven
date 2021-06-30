@@ -6,4 +6,4 @@ configs:
       database: platform-demo
       address: 82.156.241.68
       username: root
-      password: 123456
+      password: root

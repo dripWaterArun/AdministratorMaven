@@ -15,7 +15,6 @@ project:
   # 邮箱
   email: daixu_cisco@sina.cn
 
-
 # Nacos 配置管理
 configs:
   nacos:

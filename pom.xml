@@ -142,20 +142,6 @@
                 <version>${druid.version}</version>
             </dependency>
 
-            <!--分布式 TX-LCN客户端-->
-            <dependency>
-                <groupId>com.codingapi.txlcn</groupId>
-                <artifactId>txlcn-tc</artifactId>
-                <version>${txlcn.tc.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.codingapi.txlcn</groupId>
-                <artifactId>txlcn-txmsg-netty</artifactId>
-                <version>${txlcn.txmsg.netty.version}</version>
-            </dependency>
-            <!--分布式 TX-LCN客户端-->
-
             <!-- spring-boot-starter-validation -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
