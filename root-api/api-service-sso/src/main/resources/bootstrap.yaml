@@ -43,7 +43,7 @@ spring:
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # platform-demo-datasource 模块 数据库配置
-          - data-id: ${configs.nacos.shared.demo}
-            group: ${configs.nacos.shared.demo-group}
-            refresh: ${configs.nacos.shared.demo-refresh}
+          # platform-user-datasource 用户模块 数据库配置
+          - data-id: ${configs.nacos.shared.user}
+            group: ${configs.nacos.shared.user-group}
+            refresh: ${configs.nacos.shared.user-refresh}

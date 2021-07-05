@@ -32,10 +32,14 @@ configs:
       druid: druid.yaml
       druid-group: DEFAULT_GROUP
       druid-refresh: true
-      # platform-demo-datasource 模块 数据库配置
+      # platform-demo-datasource 案例模块 数据库配置
       demo: platform-demo-datasource.yaml
       demo-group: DEFAULT_GROUP
       demo-refresh: true
+      # platform-user-datasource 用户模块 数据库配置
+      user: platform-user-datasource.yaml
+      user-group: DEFAULT_GROUP
+      user-refresh: true
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
