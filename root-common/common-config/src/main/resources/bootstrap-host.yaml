@@ -20,15 +20,15 @@ configs:
     # 配置中心
     config:
       # nacos 配置中心 地址
-      addr: 82.156.241.68:8848
+      addr: ${variableBase.nacos.addr.host}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-      namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
+      namespace: ${variableBase.nacos.namespace.host}
     # 注册中心
     discovery:
       # nacos 注册中心 地址
-      addr: 82.156.241.68:8848
+      addr: ${variableBase.nacos.addr.host}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-      namespace: fef0092c-d406-49bd-80c0-b3414ee839d0
+      namespace: ${variableBase.nacos.namespace.host}
 ################### Nacos 注册中心 end ###################
 
 ################### log 日志 start ###################

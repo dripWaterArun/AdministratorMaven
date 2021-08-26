@@ -15,6 +15,23 @@ project:
   # 邮箱
   email: daixu_cisco@sina.cn
 
+# 全局变量
+variableBase:
+  nacos:
+    # Nacos 全局变量
+    # 分组
+    group:
+      config: CONFIG_GROUP
+      database: DATABASE_GROUP
+    #地址
+    addr:
+      dev: 82.156.241.68:8848
+      host: 82.156.241.68:8848
+    #命名空间
+    namespace:
+      dev: 2a1214dd-09be-419a-8751-3f0be62b004b
+      host: 2a1214dd-09be-419a-8751-3f0be62b004b
+
 # Nacos 配置管理
 configs:
   nacos:
@@ -26,32 +43,32 @@ configs:
     shared:
       # Mybatis-plus 配置文件
       mybatis: mybatis-plus.yaml
-      mybatis-group: DEFAULT_GROUP
+      mybatis-group: ${variableBase.nacos.group.database}
       mybatis-refresh: true
       # druid 数据库连接池
       druid: druid.yaml
-      druid-group: DEFAULT_GROUP
+      druid-group: ${variableBase.nacos.group.database}
       druid-refresh: true
       # platform-demo-datasource 案例模块 数据库配置
       demo: platform-demo-datasource.yaml
-      demo-group: DEFAULT_GROUP
+      demo-group: ${variableBase.nacos.group.database}
       demo-refresh: true
       # platform-user-datasource 用户模块 数据库配置
       user: platform-user-datasource.yaml
-      user-group: DEFAULT_GROUP
+      user-group: ${variableBase.nacos.group.database}
       user-refresh: true
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
       # 基本配置
       base: nacos-config-base.yaml
-      base-group: DEFAULT_GROUP
+      base-group: ${variableBase.nacos.group.config}
       base-refresh: true
       # 数据库基本配置
       database: nacos-config-database.yaml
-      database-group: DEFAULT_GROUP
+      database-group: ${variableBase.nacos.group.config}
       database-refresh: true
       # 数据库共通配置
       druid: nacos-config-datasource.yaml
-      druid-group: DEFAULT_GROUP
+      druid-group: ${variableBase.nacos.group.config}
       druid-refresh: true
