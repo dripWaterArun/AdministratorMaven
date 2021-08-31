@@ -17,19 +17,27 @@ project:
 
 # 全局变量
 variableBase:
+  # Nacos 全局变量
   nacos:
-    # Nacos 全局变量
     # 分组
     group:
+      # 基础配置
       config: CONFIG_GROUP
+      # 默认配置
+      default: DEFAULT_GROUP
+      # 数据库相关配置
       database: DATABASE_GROUP
     #地址
     addr:
+      # 开发环境
       dev: 82.156.241.68:8848
+      # 本地环境
       host: 82.156.241.68:8848
     #命名空间
     namespace:
+      # 开发环境
       dev: 2a1214dd-09be-419a-8751-3f0be62b004b
+      # 本地环境
       host: 2a1214dd-09be-419a-8751-3f0be62b004b
 
 # Nacos 配置管理
