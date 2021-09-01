@@ -10,7 +10,7 @@ spring:
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
         namespace: ${configs.nacos.discovery.namespace}
         # 分组（默认分组）
-        group: DEFAULT_GROUP
+        group: ${variableBase.nacos.group.default}
 
 configs:
   swagger:
