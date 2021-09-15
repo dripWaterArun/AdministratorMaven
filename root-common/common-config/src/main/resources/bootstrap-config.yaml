@@ -35,10 +35,16 @@ variableBase:
       host: 82.156.241.68:8848
     #命名空间
     namespace:
+      # 公共环境
+      public: public
       # 开发环境
-      dev: 2a1214dd-09be-419a-8751-3f0be62b004b
+      dev: 8600ac64-0eb7-4cb0-aa16-6db303f52c4f
+      # 生产环境
+      pro: 688a35e1-bc0e-4cef-87db-a886b4ce91db
+      # 测试环境
+      test: e0a138fb-cc6d-499b-a58b-f62f00417f3b
       # 本地环境
-      host: 2a1214dd-09be-419a-8751-3f0be62b004b
+      host: aa
 
 # Nacos 配置管理
 configs:
@@ -49,14 +55,14 @@ configs:
     #2、extension-configs 优先级大于 shared-configs，因为在 shared-configs 之后加载
     #3、shared-configs 与 extension-configs 的配置列表中，在下面的配置优先级高。
     shared:
-      # Mybatis-plus 配置文件
-      mybatis: mybatis-plus.yaml
-      mybatis-group: ${variableBase.nacos.group.database}
-      mybatis-refresh: true
       # druid 数据库连接池
-      druid: druid.yaml
+      druid: share-druid.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: true
+      # Mybatis-plus 配置文件
+      mybatis: share-mybatis-plus.yaml
+      mybatis-group: ${variableBase.nacos.group.database}
+      mybatis-refresh: true
       # platform-demo-datasource 案例模块 数据库配置
       demo: platform-demo-datasource.yaml
       demo-group: ${variableBase.nacos.group.database}
@@ -69,14 +75,14 @@ configs:
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
       # 基本配置
-      base: nacos-config-base.yaml
+      base: extension-config-base.yaml
       base-group: ${variableBase.nacos.group.config}
       base-refresh: true
       # 数据库基本配置
-      database: nacos-config-database.yaml
+      database: extension-config-database.yaml
       database-group: ${variableBase.nacos.group.config}
       database-refresh: true
       # 数据库共通配置
-      druid: nacos-config-datasource.yaml
-      druid-group: ${variableBase.nacos.group.config}
+      druid: share-config-database.yaml
+      druid-group: ${variableBase.nacos.group.database}
       druid-refresh: true
