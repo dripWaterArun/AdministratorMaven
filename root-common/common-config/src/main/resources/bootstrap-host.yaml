@@ -1,8 +1,13 @@
 ################################ 本地环境 ################################
 ################### Nacos 配置中心 start ###################
 spring:
-  profiles:
-    active: datahost
+  #profiles:
+    #active: datahost
+  config:
+    activate:
+      on-profile:
+        - datahost
+
   cloud:
     nacos:
       config:

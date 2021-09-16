@@ -38,13 +38,13 @@ variableBase:
       # 公共环境
       public: public
       # 开发环境
-      dev: 8600ac64-0eb7-4cb0-aa16-6db303f52c4f
+      dev: dev
       # 生产环境
-      pro: 688a35e1-bc0e-4cef-87db-a886b4ce91db
+      pro: pro
       # 测试环境
-      test: e0a138fb-cc6d-499b-a58b-f62f00417f3b
+      test: test
       # 本地环境
-      host: aa
+      host: daixu
 
 # Nacos 配置管理
 configs:
@@ -86,3 +86,5 @@ configs:
       druid: share-config-database.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: true
+
+################### 本地环境 数据库相关配置 ###################

@@ -1,6 +1,8 @@
 package com.core.common.util.copy;
 
 import com.core.common.util.date.DateUtiles;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.cglib.beans.BeanCopier;
 
@@ -11,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Date: 2020/9/25 9:55
  * @author daixu
  */
-public class ObjectCopy {
+public class CopyPros {
 
     /**
      * BeanCopier的缓存
@@ -19,9 +21,16 @@ public class ObjectCopy {
     static final ConcurrentHashMap<String, BeanCopier> BEAN_COPIER_CACHE = new ConcurrentHashMap<>();
 
     /**
+     * 日志
+     */
+    private static final Logger log = LoggerFactory.getLogger(CopyPros.class);
+
+    /**
      * 字节码转换对象属性，速度比反射快（创建新对象）
-     * @param source
-     * @return
+     * @param source 源对象
+     * @return 拷贝后的新对象
+     * @author daiux
+     * @date 2021-08-12 13:39
      */
     public static<T> T copyProperties(Object source, Class<T> clazz){
         //动态创建对象
@@ -33,19 +42,31 @@ public class ObjectCopy {
         beanCopier.copy(source, targets, (value, target, context) -> {
             try {
                 if ("Date".equals(target.getSimpleName())) {
-                    return DateUtiles.dateFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 Date 类型 ------------------");
+                        return DateUtiles.dateFormat(String.valueOf(value));
+                    }
                 }
                 if ("LocalDateTime".equals(target.getSimpleName())) {
-                    return DateUtiles.localDateTimeFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 LocalDateTime 类型 ------------------");
+                        return DateUtiles.localDateTimeFormat(String.valueOf(value));
+                    }
                 }
                 if ("LocalDate".equals(target.getSimpleName())) {
-                    return DateUtiles.localDateFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 LocalDate 类型 ------------------");
+                        return DateUtiles.localDateFormat(String.valueOf(value));
+                    }
                 }
                 if ("LocalTime".equals(target.getSimpleName())) {
-                    return DateUtiles.localTimeFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 LocalTime 类型 ------------------");
+                        return DateUtiles.localTimeFormat(String.valueOf(value));
+                    }
                 }
             }catch (Exception e){
-                System.err.println("对象拷贝错误："+value);
+                log.error("------------------ 对象拷贝方法异常: {} ------------------",e);
                 return null;
             }
             // 未匹配上的字段，原值返回
@@ -60,6 +81,8 @@ public class ObjectCopy {
      * @param targets 目标对象
      * @param <T> 泛型
      * @return 保留目标对象原有属性，并把源对象的属性拷贝过来
+     * @author daixu
+     * @date 2021-08-12 13:39
      */
     public static<T> T copyProperties(Object source, T targets){
         // 构造转换器对象，最后的参数表示是否需要自定义转换器
@@ -68,19 +91,31 @@ public class ObjectCopy {
         beanCopier.copy(source, targets, (value, target, context) -> {
             try {
                 if ("Date".equals(target.getSimpleName())) {
-                    return DateUtiles.dateFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 Date 类型 ------------------");
+                        return DateUtiles.dateFormat(String.valueOf(value));
+                    }
                 }
                 if ("LocalDateTime".equals(target.getSimpleName())) {
-                    return DateUtiles.localDateTimeFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 LocalDateTime 类型 ------------------");
+                        return DateUtiles.localDateTimeFormat(String.valueOf(value));
+                    }
                 }
                 if ("LocalDate".equals(target.getSimpleName())) {
-                    return DateUtiles.localDateFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 LocalDate 类型 ------------------");
+                        return DateUtiles.localDateFormat(String.valueOf(value));
+                    }
                 }
                 if ("LocalTime".equals(target.getSimpleName())) {
-                    return DateUtiles.localTimeFormat(String.valueOf(value));
+                    if (value instanceof String) {
+                        log.info("------------------ 对象拷贝方法 字符串 转 LocalTime 类型 ------------------");
+                        return DateUtiles.localTimeFormat(String.valueOf(value));
+                    }
                 }
             }catch (Exception e){
-                System.err.println("对象拷贝错误："+value);
+                log.error("------------------ 对象拷贝方法异常: {} ------------------",e);
                 return null;
             }
             // 未匹配上的字段，原值返回
