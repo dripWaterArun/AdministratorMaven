@@ -2,11 +2,11 @@
 
 #变量名配置（读取环境变量）
 config:
-  #的意思是，先获取环境变量 ADMIN_SERVER，如果不为空，则value等于环境变量 ADMIN_SERVER 的值，否则等于dev。
+  #的意思是，先获取环境变量 LOCALHOST_NAME，如果不为空，则value等于环境变量 LOCALHOST_NAME 的值，否则等于 host。
   #这样的好处就在于，我们可以在生产环境服务器上配置对应的环境变量，通过环境变量来控制当前环境下，读取哪一个yml文件，
   #这样的话，就可以直接打包使用，不用修改任何配置。
-  #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${ADMIN_SERVER:prod}
-  app_name: ${SERVICE_HOME:pro}
+  #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${LOCALHOST_NAME:prod}
+  app_name: ${LOCALHOST_NAME:prod}
   application_name: platform-backend-demo-${config.app_name}
 
 #端口号
@@ -23,18 +23,22 @@ spring:
     # 配置文件加载分组
     group:
       dev: config,dev
-      pro: config,pro
+      prod: config,prod
       test: config,test
       host: config,datahost
 
   cloud:
     nacos:
       config:
+        # nacos 鉴权登录 账号
+        username: ${configs.nacos.config.signIn.username}
+        # nacos 鉴权登录 密码
+        password: ${configs.nacos.config.signIn.password}
         # 是否开启配置中心 默认 true
         enabled: true
         #file-extension: yaml
         #默认是 spring.application.name 的值，也可以通过 prefix 来配置
-        #prefix: backend-demo-daixu,mybatis
+        #prefix: mybatis
         # nacos 服务发现 地址
         server-addr: ${configs.nacos.config.addr}
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来

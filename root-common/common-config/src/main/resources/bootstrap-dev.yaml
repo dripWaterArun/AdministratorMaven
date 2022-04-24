@@ -22,6 +22,11 @@ configs:
   nacos:
     # 配置中心
     config:
+      signIn:
+        # 用户名
+        username: ${variableBase.nacos.signIn.dev.username}
+        # 密码
+        password: ${variableBase.nacos.signIn.dev.password}
       # nacos 配置中心 地址
       addr: ${variableBase.nacos.addr.dev}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来

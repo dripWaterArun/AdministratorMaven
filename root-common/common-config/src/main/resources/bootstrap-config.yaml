@@ -1,7 +1,7 @@
 # 项目相关配置
 project:
   #名称
-  name: WenXi
+  name: YanYan
   #作者
   author: daixu
   # 版本
@@ -9,7 +9,7 @@ project:
   # 实例演示开关
   demoEnabled: true
   # 版权年份
-  copyrightYear: 2021
+  copyrightYear: 2022
   # 获取ip地址开关
   addressEnabled: false
   # 邮箱
@@ -21,30 +21,59 @@ variableBase:
   nacos:
     # 分组
     group:
-      # 基础配置
-      config: CONFIG_GROUP
-      # 默认配置
+      # 共享配置
+      share: SHARE_GROUP
+      # 基础配置（默认分组）
       default: DEFAULT_GROUP
       # 数据库相关配置
       database: DATABASE_GROUP
     #地址
     addr:
       # 开发环境
-      dev: 82.156.241.68:8848
+      dev: 123.56.31.57:8848
+      # 生产环境
+      prod: 123.56.31.57:8848
+      # 测试环境
+      test: 123.56.31.57:8848
       # 本地环境
-      host: 82.156.241.68:8848
+      host: 123.56.31.57:8848
     #命名空间
     namespace:
       # 公共环境
       public: public
-      # 开发环境
-      dev: dev
       # 生产环境
-      pro: pro
+      pro: A01-AdministratorMaven-Prod
       # 测试环境
-      test: test
+      test: A02-AdministratorMaven-Test
+      # 开发环境
+      dev: A03-AdministratorMaven-Dev
+      # 本地环境（本人中文名或英文名）${LOCALHOST_NAME:host}
+      host: A04-AdministratorMaven-DaiXu
+    # 登录
+    signIn:
+      # 公共环境
+      public:
+        username: nacos
+        password: nacos
+      # 开发环境
+      dev:
+        username: admin-dev
+        password: 123456a.
+      # 生产环境
+      pro:
+        username: admin-pro
+        password: 123456a.
+      # 测试环境
+      test:
+        username: admin-test
+        password: 123456a.
       # 本地环境
-      host: daixu
+      host:
+        username: daixuNacos
+        password: 123456a.
+    other:
+      # 配置是否自动刷新
+      refresh: true
 
 # Nacos 配置管理
 configs:
@@ -58,33 +87,31 @@ configs:
       # druid 数据库连接池
       druid: share-druid.yaml
       druid-group: ${variableBase.nacos.group.database}
-      druid-refresh: true
+      druid-refresh: ${variableBase.nacos.other.refresh}
       # Mybatis-plus 配置文件
       mybatis: share-mybatis-plus.yaml
-      mybatis-group: ${variableBase.nacos.group.database}
-      mybatis-refresh: true
+      mybatis-group: ${variableBase.nacos.group.share}
+      mybatis-refresh: ${variableBase.nacos.other.refresh}
       # platform-demo-datasource 案例模块 数据库配置
       demo: platform-demo-datasource.yaml
       demo-group: ${variableBase.nacos.group.database}
-      demo-refresh: true
+      demo-refresh: ${variableBase.nacos.other.refresh}
       # platform-user-datasource 用户模块 数据库配置
       user: platform-user-datasource.yaml
       user-group: ${variableBase.nacos.group.database}
-      user-refresh: true
+      user-refresh: ${variableBase.nacos.other.refresh}
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
       # 基本配置
       base: extension-config-base.yaml
-      base-group: ${variableBase.nacos.group.config}
-      base-refresh: true
+      base-group: ${variableBase.nacos.group.default}
+      base-refresh: ${variableBase.nacos.other.refresh}
       # 数据库基本配置
       database: extension-config-database.yaml
-      database-group: ${variableBase.nacos.group.config}
-      database-refresh: true
+      database-group: ${variableBase.nacos.group.database}
+      database-refresh: ${variableBase.nacos.other.refresh}
       # 数据库共通配置
-      druid: share-config-database.yaml
+      druid: share-database.yaml
       druid-group: ${variableBase.nacos.group.database}
-      druid-refresh: true
-
-################### 本地环境 数据库相关配置 ###################
+      druid-refresh: ${variableBase.nacos.other.refresh}

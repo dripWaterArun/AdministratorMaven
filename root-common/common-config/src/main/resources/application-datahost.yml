@@ -1,0 +1,15 @@
+################### 本地环境 数据库相关配置 ###################
+configs:
+  datasource:
+    ################### 案例展示模块 ###################
+    platform-demo:
+      database: platform-demo
+      address: 127.0.0.1
+      username: root
+      password: root
+    ################### 用户模块 ###################
+    platform-user:
+      database: platform-user
+      address: 127.0.0.1
+      username: root
+      password: root
