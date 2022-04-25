@@ -4,12 +4,12 @@ configs:
     ################### 案例展示模块 ###################
     platform-demo:
       database: platform-demo
-      address: 127.0.0.1
-      username: root
-      password: root
+      address: rm-2ze3so3bq100b92u62o.mysql.rds.aliyuncs.com
+      username: daixu
+      password: Aa123456!
     ################### 用户模块 ###################
     platform-user:
       database: platform-user
-      address: 127.0.0.1
-      username: root
-      password: root
+      address: rm-2ze3so3bq100b92u62o.mysql.rds.aliyuncs.com
+      username: daixu
+      password: Aa123456!

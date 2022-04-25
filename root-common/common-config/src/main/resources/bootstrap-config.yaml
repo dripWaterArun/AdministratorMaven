@@ -36,7 +36,7 @@ variableBase:
       # 测试环境
       test: 123.56.31.57:8848
       # 本地环境
-      host: 123.56.31.57:8848
+      local: 123.56.31.57:8848
     #命名空间
     namespace:
       # 公共环境
@@ -48,7 +48,7 @@ variableBase:
       # 开发环境
       dev: A03-AdministratorMaven-Dev
       # 本地环境（本人中文名或英文名）${LOCALHOST_NAME:host}
-      host: A04-AdministratorMaven-DaiXu
+      local: A04-AdministratorMaven-DaiXu
     # 登录
     signIn:
       # 公共环境
@@ -68,7 +68,7 @@ variableBase:
         username: admin-test
         password: 123456a.
       # 本地环境
-      host:
+      local:
         username: daixuNacos
         password: 123456a.
     other:

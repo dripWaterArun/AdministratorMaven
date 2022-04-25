@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.6.RELEASE</version>
+                <version>2.2.7.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -175,11 +175,11 @@
                 <version>${swagger2.version}</version>
             </dependency>
             <!--swagger ui knife4j 优化-->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j-spring-boot-starter-version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.github.xiaoymin</groupId>-->
+<!--                <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--                <version>${knife4j-spring-boot-starter-version}</version>-->
+<!--            </dependency>-->
 
             <!--防止swagger2 报错 Illegal DefaultValue null for parameter type integer-->
             <dependency>

@@ -26,15 +26,15 @@ configs:
     # 配置中心
     config:
       # nacos 配置中心 地址
-      addr: ${variableBase.nacos.addr.host}
+      addr: ${variableBase.nacos.addr.local}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-      namespace: ${variableBase.nacos.namespace.host}
+      namespace: ${variableBase.nacos.namespace.local}
     # 注册中心
     discovery:
       # nacos 注册中心 地址
-      addr: ${variableBase.nacos.addr.host}
+      addr: ${variableBase.nacos.addr.local}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-      namespace: ${variableBase.nacos.namespace.host}
+      namespace: ${variableBase.nacos.namespace.local}
 ################### Nacos 注册中心 end ###################
 
 ################### log 日志 start ###################
