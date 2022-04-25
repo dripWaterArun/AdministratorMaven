@@ -112,6 +112,6 @@ configs:
       database-group: ${variableBase.nacos.group.database}
       database-refresh: ${variableBase.nacos.other.refresh}
       # 数据库共通配置
-      druid: share-database.yaml
+      druid: share-datasource.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: ${variableBase.nacos.other.refresh}
