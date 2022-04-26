@@ -25,7 +25,7 @@ spring:
       dev: config,dev
       prod: config,prod
       test: config,test
-      localhost: config,localhost,datahost
+      host: config,datahost
 
   cloud:
     nacos:
@@ -45,15 +45,15 @@ spring:
         namespace: ${configs.nacos.config.namespace}
         # 用于共享的配置文件
         shared-configs:
-          # Mybatis-plus 配置文件
+          # 共享配置：mybatis-plus 配置文件
           - data-id: ${configs.nacos.shared.mybatis}
             group: ${configs.nacos.shared.mybatis-group}
             refresh: ${configs.nacos.shared.mybatis-refresh}
-          # druid 数据库连接池
+          # 数据库配置：数据库连接池参数配置（共享）
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # platform-demo-datasource 模块 数据库配置
+          # 数据库配置：案例模块连接配置 platform-demo-datasource
           - data-id: ${configs.nacos.shared.demo}
             group: ${configs.nacos.shared.demo-group}
             refresh: ${configs.nacos.shared.demo-refresh}

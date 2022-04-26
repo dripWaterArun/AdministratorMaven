@@ -6,7 +6,7 @@ config:
   #这样的好处就在于，我们可以在生产环境服务器上配置对应的环境变量，通过环境变量来控制当前环境下，读取哪一个yml文件，
   #这样的话，就可以直接打包使用，不用修改任何配置。
   #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${SERVICE_HOME:prod}
-  app_name: ${SERVICE_HOME:pro}
+  app_name: ${LOCALHOST_NAME:pro}
   application_name: platform-api-sso-${config.app_name}
 
 #端口号
@@ -24,6 +24,10 @@ spring:
   cloud:
     nacos:
       config:
+        # nacos 鉴权登录 账号
+        username: ${configs.nacos.config.signIn.username}
+        # nacos 鉴权登录 密码
+        password: ${configs.nacos.config.signIn.password}
         # 是否开启配置中心 默认 true
         enabled: true
         #file-extension: yaml
@@ -35,15 +39,15 @@ spring:
         namespace: ${configs.nacos.config.namespace}
         # 用于共享的配置文件
         shared-configs:
-          # Mybatis-plus 配置文件
+          # 共享配置：mybatis-plus 配置文件
           - data-id: ${configs.nacos.shared.mybatis}
             group: ${configs.nacos.shared.mybatis-group}
             refresh: ${configs.nacos.shared.mybatis-refresh}
-          # druid 数据库连接池
+          # 数据库配置：数据库连接池参数配置（共享）
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # platform-user-datasource 用户模块 数据库配置
+          # 数据库配置：案例模块连接配置 platform-user-datasource
           - data-id: ${configs.nacos.shared.user}
             group: ${configs.nacos.shared.user-group}
             refresh: ${configs.nacos.shared.user-refresh}

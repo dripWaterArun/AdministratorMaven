@@ -14,7 +14,7 @@ spring:
       config:
         # 优先级大于 shared-configs，在 shared-configs 之后加载
         extension-configs:
-          #数据库基本配置
+          # 数据库配置：数据库连接池地址配置（共享）
           - data-id: ${configs.nacos.extension.druid}
             group: ${configs.nacos.extension.druid-group}
             refresh: ${configs.nacos.extension.druid-refresh}
@@ -25,16 +25,22 @@ configs:
   nacos:
     # 配置中心
     config:
+      # 登录账号密码
+      signIn:
+        # 用户名
+        username: ${variableBase.nacos.signIn.host.username}
+        # 密码
+        password: ${variableBase.nacos.signIn.host.password}
       # nacos 配置中心 地址
-      addr: ${variableBase.nacos.addr.local}
+      addr: ${variableBase.nacos.addr.host}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-      namespace: ${variableBase.nacos.namespace.local}
+      namespace: ${variableBase.nacos.namespace.host}
     # 注册中心
     discovery:
       # nacos 注册中心 地址
-      addr: ${variableBase.nacos.addr.local}
+      addr: ${variableBase.nacos.addr.host}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
-      namespace: ${variableBase.nacos.namespace.local}
+      namespace: ${variableBase.nacos.namespace.host}
 ################### Nacos 注册中心 end ###################
 
 ################### log 日志 start ###################

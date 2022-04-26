@@ -36,7 +36,7 @@ variableBase:
       # 测试环境
       test: 123.56.31.57:8848
       # 本地环境
-      local: 123.56.31.57:8848
+      host: 123.56.31.57:8848
     #命名空间
     namespace:
       # 公共环境
@@ -48,7 +48,7 @@ variableBase:
       # 开发环境
       dev: A03-AdministratorMaven-Dev
       # 本地环境（本人中文名或英文名）${LOCALHOST_NAME:host}
-      local: A04-AdministratorMaven-DaiXu
+      host: A04-AdministratorMaven-DaiXu
     # 登录
     signIn:
       # 公共环境
@@ -68,7 +68,7 @@ variableBase:
         username: admin-test
         password: 123456a.
       # 本地环境
-      local:
+      host:
         username: daixuNacos
         password: 123456a.
     other:
@@ -80,38 +80,38 @@ configs:
   nacos:
     ################### 共享的配置文件 ###################
     # Nacos 配置文件 加载顺序
-    #1、后加载的优先级高；
-    #2、extension-configs 优先级大于 shared-configs，因为在 shared-configs 之后加载
-    #3、shared-configs 与 extension-configs 的配置列表中，在下面的配置优先级高。
+    # 1、后加载的优先级高；
+    # 2、extension-configs 优先级大于 shared-configs，因为在 shared-configs 之后加载
+    # 3、shared-configs 与 extension-configs 的配置列表中，在下面的配置优先级高。
     shared:
-      # druid 数据库连接池
+      # 数据库配置：数据库连接池参数配置（共享）
       druid: share-druid.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: ${variableBase.nacos.other.refresh}
-      # Mybatis-plus 配置文件
+      # 共享配置：mybatis-plus 配置文件
       mybatis: share-mybatis-plus.yaml
       mybatis-group: ${variableBase.nacos.group.share}
       mybatis-refresh: ${variableBase.nacos.other.refresh}
-      # platform-demo-datasource 案例模块 数据库配置
+      # 数据库配置：案例模块连接配置
       demo: platform-demo-datasource.yaml
       demo-group: ${variableBase.nacos.group.database}
       demo-refresh: ${variableBase.nacos.other.refresh}
-      # platform-user-datasource 用户模块 数据库配置
+      # 数据库配置：用户模块连接配置
       user: platform-user-datasource.yaml
       user-group: ${variableBase.nacos.group.database}
       user-refresh: ${variableBase.nacos.other.refresh}
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
-      # 基本配置
+      # 默认配置：基础配置（常用）
       base: extension-config-base.yaml
       base-group: ${variableBase.nacos.group.default}
       base-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库基本配置
+      # 数据库配置：连接地址配置（常用）
       database: extension-config-database.yaml
       database-group: ${variableBase.nacos.group.database}
       database-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库共通配置
+      # 数据库配置：数据库连接池地址配置（共享）
       druid: share-datasource.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: ${variableBase.nacos.other.refresh}

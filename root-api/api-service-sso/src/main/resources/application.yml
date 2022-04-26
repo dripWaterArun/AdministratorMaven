@@ -11,6 +11,10 @@ spring:
         namespace: ${configs.nacos.discovery.namespace}
         # 分组（默认分组）
         group: ${variableBase.nacos.group.default}
+        # nacos 鉴权登录 账号
+        username: ${configs.nacos.config.signIn.username}
+        # nacos 鉴权登录 密码
+        password: ${configs.nacos.config.signIn.password}
 
 configs:
   swagger:

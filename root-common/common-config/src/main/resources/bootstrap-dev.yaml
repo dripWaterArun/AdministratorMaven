@@ -4,15 +4,15 @@ spring:
       config:
         # 优先级大于 shared-configs，在 shared-configs 之后加载
         extension-configs:
-          # 基础配置文件
+          # 默认配置：基础配置（常用）
           - data-id: ${configs.nacos.extension.base}
             group: ${configs.nacos.extension.base-group}
             refresh: ${configs.nacos.extension.base-refresh}
-          # 数据库基本配置
+          # 数据库配置：连接地址配置（常用）
           - data-id: ${configs.nacos.extension.database}
             group: ${configs.nacos.extension.database-group}
             refresh: ${configs.nacos.extension.database-refresh}
-          # 数据库共通配置
+          # 数据库配置：数据库连接池地址配置（共享）
           - data-id: ${configs.nacos.extension.druid}
             group: ${configs.nacos.extension.druid-group}
             refresh: ${configs.nacos.extension.druid-refresh}
@@ -22,6 +22,7 @@ configs:
   nacos:
     # 配置中心
     config:
+      # 登录账号密码
       signIn:
         # 用户名
         username: ${variableBase.nacos.signIn.dev.username}
