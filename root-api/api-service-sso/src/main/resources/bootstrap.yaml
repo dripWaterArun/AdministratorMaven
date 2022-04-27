@@ -2,10 +2,10 @@
 
 #变量名配置（读取环境变量）
 config:
-  #的意思是，先获取环境变量 SERVICE_HOME，如果不为空，则value等于环境变量 SERVICE_HOME 的值，否则等于dev。
+  #的意思是，先获取环境变量 LOCALHOST_NAME，如果不为空，则value等于环境变量 LOCALHOST_NAME 的值，否则等于dev。
   #这样的好处就在于，我们可以在生产环境服务器上配置对应的环境变量，通过环境变量来控制当前环境下，读取哪一个yml文件，
   #这样的话，就可以直接打包使用，不用修改任何配置。
-  #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${SERVICE_HOME:prod}
+  #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${LOCALHOST_NAME:prod}
   app_name: ${LOCALHOST_NAME:pro}
   application_name: platform-api-sso-${config.app_name}
 
@@ -18,8 +18,14 @@ spring:
     #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
     name: ${config.application_name}
   profiles:
-    #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境）
-    active: config,@profileActive@
+    #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境 host：本地环境）
+    active: @profileActive@
+    # 配置文件加载分组
+    group:
+      dev: config,dev
+      prod: config,prod
+      test: config,test
+      host: config,datahost
 
   cloud:
     nacos:
@@ -47,7 +53,7 @@ spring:
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # 数据库配置：案例模块连接配置 platform-user-datasource
+          # 数据库配置：用户模块连接配置 platform-user-datasource
           - data-id: ${configs.nacos.shared.user}
             group: ${configs.nacos.shared.user-group}
             refresh: ${configs.nacos.shared.user-refresh}

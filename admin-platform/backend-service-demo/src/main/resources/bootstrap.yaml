@@ -18,7 +18,7 @@ spring:
     #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
     name: ${config.application_name}
   profiles:
-    #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境 local：本地环境）
+    #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境 host：本地环境）
     active: @profileActive@
     # 配置文件加载分组
     group:

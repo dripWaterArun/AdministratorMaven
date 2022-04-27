@@ -17,7 +17,7 @@ public class NacosController {
 //    @Value("${your.configuration}")
 //    private String useLocalCache;
 //
-    @Value("${configs.datasource.platform-demo.address}")
+    @Value("${spring.datasource.url}")
     private String yours;
 //
 //    @Value("${config}")

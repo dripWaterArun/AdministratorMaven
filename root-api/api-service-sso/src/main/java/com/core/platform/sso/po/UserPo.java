@@ -5,17 +5,32 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName(value = "user")
+@TableName(value = "u_user")
 public class UserPo {
 
+    /**
+     * 主键 id
+     */
     private Long id;
 
+    /**
+     * 用户名
+     */
     private String username;
 
+    /**
+     * 密码
+     */
     private String password;
 
-    private String phone;
+    /**
+     * 手机号
+     */
+    private String phoneNumber;
 
-    @TableField(value = "is_deleted",exist = true)
-    private String deleted;
+    /**
+     * 逻辑删除标识（1 表示删除，0 表示未删除）
+     */
+    @TableField(value = "is_delete",exist = true)
+    private int deleteFlag;
 }
