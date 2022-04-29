@@ -7,6 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * 单点登录 微服务
@@ -14,9 +15,10 @@ import org.springframework.web.client.RestTemplate;
  * @date 2021-06-29
  */
 @EnableAsync
+@EnableWebMvc
+@EnableFeignClients
 @EnableCustomSwagger2
 @SpringBootApplication
-@EnableFeignClients
 public class ApiServiceSSOApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApiServiceSSOApplication.class,args);

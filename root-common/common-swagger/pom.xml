@@ -35,15 +35,16 @@
             <optional>true</optional>
         </dependency>
 
-        <!--swagger2-->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
+            <groupId>cn.weiguangfu</groupId>
+            <artifactId>springfox-swagger2-plus</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-        </dependency>
+
+        <!-- swagger 增强 knife4j -->
+<!--        <dependency>-->
+<!--            <groupId>com.github.shijingsh</groupId>-->
+<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
 
         <!--防止报错 Illegal DefaultValue null for parameter type integer-->
         <dependency>

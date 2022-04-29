@@ -1,5 +1,6 @@
 package com.core.platform.sso.controller;
 
+import cn.weiguangfu.swagger2.plus.annotation.ApiPlus;
 import com.core.platform.sso.po.UserPo;
 import com.core.platform.sso.service.ILoginService;
 import io.swagger.annotations.Api;
@@ -16,9 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2021-06-29
  */
 @RefreshScope
+@ApiPlus(true)
 @RestController
-@RequestMapping("/api/service/sso")
 @Api(tags = "单点登录")
+@RequestMapping("/api/service/sso")
 public class LoginController {
 
     @Autowired

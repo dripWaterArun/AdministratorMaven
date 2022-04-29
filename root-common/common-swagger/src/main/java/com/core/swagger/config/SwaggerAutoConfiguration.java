@@ -1,5 +1,7 @@
 package com.core.swagger.config;
 
+import cn.weiguangfu.swagger2.plus.annotation.EnableSwagger2Plus;
+//import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import com.google.common.base.Predicates;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -31,7 +33,8 @@ import static springfox.documentation.builders.PathSelectors.ant;
  * @date 2021-06-28
  */
 @Configuration
-@EnableSwagger2
+//@EnableKnife4j
+@EnableSwagger2Plus
 @EnableAutoConfiguration
 @ConditionalOnProperty(name = "configs.swagger.enabled", matchIfMissing = true)
 public class SwaggerAutoConfiguration {

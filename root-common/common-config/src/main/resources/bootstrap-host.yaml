@@ -50,6 +50,10 @@ configs:
 
 ################### Swagger 配置 start ###################
   swagger:
-    # 是否开启swagger
+    # 是否开启 swagger
     enabled: true
+
+#swagger:
+#  push:
+#    enable: true
 ################### Swagger 配置 end ###################
