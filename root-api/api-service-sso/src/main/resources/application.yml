@@ -29,3 +29,8 @@ configs:
     # 描述
     description: 单点登录模块接口文档
 
+swagger:
+  push:
+    enable: true
+
+

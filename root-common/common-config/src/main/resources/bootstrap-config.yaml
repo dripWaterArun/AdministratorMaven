@@ -115,3 +115,7 @@ configs:
       druid: share-datasource.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: ${variableBase.nacos.other.refresh}
+
+swagger:
+  push:
+    enable: true

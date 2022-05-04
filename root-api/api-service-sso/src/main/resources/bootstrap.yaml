@@ -14,6 +14,9 @@ server:
   port: 9090
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   application:
     #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
     name: ${config.application_name}

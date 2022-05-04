@@ -57,7 +57,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger2.annotations.version>1.5.22</swagger2.annotations.version>
         <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
-        <knife4j-spring-boot-starter-version>3.0.5</knife4j-spring-boot-starter-version>
+        <knife4j-spring-boot-starter-version>2.0.9</knife4j-spring-boot-starter-version>
     </properties>
 
     <!--依赖的顺序，越靠前面优先级越高-->
@@ -163,6 +163,18 @@
             </dependency>
 
             <!--swagger2-->
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-swagger2</artifactId>-->
+<!--                <version>${swagger2.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-swagger-ui</artifactId>-->
+<!--                <version>${swagger2.version}</version>-->
+<!--            </dependency>-->
+
+            <!--swagger2-->
             <dependency>
                 <groupId>cn.weiguangfu</groupId>
                 <artifactId>springfox-swagger2-plus</artifactId>
@@ -183,7 +195,7 @@
 
             <!--swagger ui knife4j 优化-->
             <dependency>
-                <groupId>com.github.shijingsh</groupId>
+                <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j-spring-boot-starter-version}</version>
             </dependency>

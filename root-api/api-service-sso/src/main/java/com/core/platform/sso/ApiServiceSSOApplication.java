@@ -15,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @date 2021-06-29
  */
 @EnableAsync
-@EnableWebMvc
 @EnableFeignClients
 @EnableCustomSwagger2
 @SpringBootApplication

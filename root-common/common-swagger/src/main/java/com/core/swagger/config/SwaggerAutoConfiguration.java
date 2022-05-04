@@ -1,7 +1,7 @@
 package com.core.swagger.config;
 
 import cn.weiguangfu.swagger2.plus.annotation.EnableSwagger2Plus;
-//import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import com.google.common.base.Predicates;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -19,7 +19,6 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ import static springfox.documentation.builders.PathSelectors.ant;
  * @date 2021-06-28
  */
 @Configuration
-//@EnableKnife4j
+@EnableKnife4j
 @EnableSwagger2Plus
 @EnableAutoConfiguration
 @ConditionalOnProperty(name = "configs.swagger.enabled", matchIfMissing = true)
@@ -41,8 +40,7 @@ public class SwaggerAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public SwaggerProperties swaggerProperties()
-    {
+    public SwaggerProperties swaggerProperties() {
         return new SwaggerProperties();
     }
 
