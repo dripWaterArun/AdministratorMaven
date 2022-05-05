@@ -38,26 +38,25 @@
 
     <!-- 自定义属性标签 统一管理jar包版本 -->
     <properties>
-        <guava.version>20.0</guava.version>
         <p6spy.version>3.8.7</p6spy.version>
         <druid.version>1.1.20</druid.version>
         <lombok.version>1.16.10</lombok.version>
         <rocketmq.version>2.1.1</rocketmq.version>
-        <swagger2.version>2.9.2</swagger2.version>
         <fastjson.version>1.2.47</fastjson.version>
         <nacos.version>2.2.3.RELEASE</nacos.version>
         <jsqlparser.version>3.1</jsqlparser.version>
         <activiti.version>7.1.0.M4</activiti.version>
         <platform.version>Cairo-SR8</platform.version>
         <freemarker.version>2.3.28</freemarker.version>
-        <txlcn.tc.version>5.0.2.RELEASE</txlcn.tc.version>
         <mybatis.plus.version>3.3.1</mybatis.plus.version>
         <httpcomponents.version>4.5.2</httpcomponents.version>
         <pagehelper.boot.version>1.3.0</pagehelper.boot.version>
+        <swagger2.plus.version>2.9.2-1-beta2</swagger2.plus.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger2.annotations.version>1.5.22</swagger2.annotations.version>
         <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
-        <knife4j-spring-boot-starter-version>2.0.9</knife4j-spring-boot-starter-version>
+        <springboot.validation.version>2.6.7</springboot.validation.version>
+        <knife4j.spring.boot.starter.version>2.0.9</knife4j.spring.boot.starter.version>
     </properties>
 
     <!--依赖的顺序，越靠前面优先级越高-->
@@ -80,6 +79,27 @@
                 <version>2.2.7.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- MySql Driver  MySql驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.java.version}</version>
+            </dependency>
+
+            <!--Alibaba DataBase Connection Pool 阿里巴巴的数据库连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!--p6spy 组件 执行 SQL 分析打印-->
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy.version}</version>
             </dependency>
 
             <!-- ################ mybatis-plus start ################ -->
@@ -113,7 +133,7 @@
             </dependency>
             <!-- ################ mybatis-plus end ################ -->
 
-            <!-- pagehelper 分页插件 -->
+            <!-- pagehelper 分页插件 start -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -125,27 +145,13 @@
                 <artifactId>jsqlparser</artifactId>
                 <version>${jsqlparser.version}</version>
             </dependency>
-            <!-- pagehelper 分页插件 -->
+            <!-- pagehelper 分页插件 end -->
 
-            <!-- MySql Driver  MySql驱动-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.java.version}</version>
-            </dependency>
-
-            <!--Alibaba DataBase Connection Pool 阿里巴巴的数据库连接池-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-            <!-- spring-boot-starter-validation -->
+            <!-- spring-boot-starter-validation 实体类属性约束校验 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-validation</artifactId>
-                <version>2.3.3.RELEASE</version>
+                <version>${springboot.validation.version}</version>
             </dependency>
 
             <!--lombok 插件-->
@@ -162,23 +168,19 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!--swagger2-->
-<!--            <dependency>-->
-<!--                <groupId>io.springfox</groupId>-->
-<!--                <artifactId>springfox-swagger2</artifactId>-->
-<!--                <version>${swagger2.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>io.springfox</groupId>-->
-<!--                <artifactId>springfox-swagger-ui</artifactId>-->
-<!--                <version>${swagger2.version}</version>-->
-<!--            </dependency>-->
-
-            <!--swagger2-->
+            <!-- swagger 在线接口文档 start -->
+            <!--swagger2-plus-->
             <dependency>
                 <groupId>cn.weiguangfu</groupId>
                 <artifactId>springfox-swagger2-plus</artifactId>
-                <version>2.9.2-1-beta2</version>
+                <version>${swagger2.plus.version}</version>
+            </dependency>
+
+            <!--swagger ui knife4j 优化-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.spring.boot.starter.version}</version>
             </dependency>
 
             <!--防止swagger2 报错 Illegal DefaultValue null for parameter type integer-->
@@ -192,13 +194,7 @@
                 <artifactId>swagger-models</artifactId>
                 <version>${swagger2.annotations.version}</version>
             </dependency>
-
-            <!--swagger ui knife4j 优化-->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j-spring-boot-starter-version}</version>
-            </dependency>
+            <!-- swagger 在线接口文档 end -->
 
             <!--Activiti 7-->
             <dependency>
@@ -230,13 +226,6 @@
                 <version>${httpcomponents.version}</version>
             </dependency>
             <!--其他工具依赖 end -->
-
-            <!--p6spy 组件 执行 SQL 分析打印-->
-            <dependency>
-                <groupId>p6spy</groupId>
-                <artifactId>p6spy</artifactId>
-                <version>${p6spy.version}</version>
-            </dependency>
 
             <!--Rocket MQ -->
             <dependency>

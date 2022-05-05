@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2021-06-29
  */
 @RefreshScope
-@ApiPlus(true)
+//@ApiPlus(true)
 @RestController
 @Api(tags = "单点登录")
 @RequestMapping("/api/service/sso")

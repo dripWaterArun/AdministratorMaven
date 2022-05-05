@@ -1,9 +1,10 @@
 package com.core.swagger.config;
 
 import cn.weiguangfu.swagger2.plus.annotation.EnableSwagger2Plus;
-import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
+import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
 import com.google.common.base.Predicates;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -32,11 +33,18 @@ import static springfox.documentation.builders.PathSelectors.ant;
  * @date 2021-06-28
  */
 @Configuration
-@EnableKnife4j
 @EnableSwagger2Plus
 @EnableAutoConfiguration
 @ConditionalOnProperty(name = "configs.swagger.enabled", matchIfMissing = true)
 public class SwaggerAutoConfiguration {
+
+    /*引入Knife4j提供的扩展类*/
+//    private final OpenApiExtensionResolver openApiExtensionResolver;
+//
+//    @Autowired
+//    public SwaggerAutoConfiguration(OpenApiExtensionResolver openApiExtensionResolver) {
+//        this.openApiExtensionResolver = openApiExtensionResolver;
+//    }
 
     @Bean
     @ConditionalOnMissingBean
@@ -51,6 +59,7 @@ public class SwaggerAutoConfiguration {
      */
     @Bean
     public Docket createRestApi() {
+        String groupName="2.X版本";
         ParameterBuilder tokenPar = new ParameterBuilder();
         List<Parameter> pars = new ArrayList<>();
         tokenPar.name("authorization").description("token令牌").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
@@ -68,6 +77,8 @@ public class SwaggerAutoConfiguration {
                 // 设置哪些接口暴露给Swagger展示
                 .paths(Predicates.and(ant("/**"), Predicates.not(ant("/error")), Predicates.not(ant("/management/**")), Predicates.not(ant("/management*"))))
                 .build().globalOperationParameters(pars);
+                //赋予插件体系
+//                .extensions(openApiExtensionResolver.buildExtensions(groupName));
     }
 
     /**

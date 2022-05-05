@@ -1,0 +1,121 @@
+# 项目相关配置
+project:
+  #名称
+  name: YanYan
+  #作者
+  author: daixu
+  # 版本
+  version: 1.0.0
+  # 实例演示开关
+  demoEnabled: true
+  # 版权年份
+  copyrightYear: 2022
+  # 获取ip地址开关
+  addressEnabled: false
+  # 邮箱
+  email: daixu_cisco@sina.cn
+
+# 全局变量
+variableBase:
+  # Nacos 全局变量
+  nacos:
+    # 分组
+    group:
+      # 共享配置
+      share: SHARE_GROUP
+      # 基础配置（默认分组）
+      default: DEFAULT_GROUP
+      # 数据库相关配置
+      database: DATABASE_GROUP
+    #地址
+    addr:
+      # 开发环境
+      dev: 123.56.31.57:8848
+      # 生产环境
+      prod: 123.56.31.57:8848
+      # 测试环境
+      test: 123.56.31.57:8848
+      # 本地环境
+      host: 123.56.31.57:8848
+    #命名空间
+    namespace:
+      # 公共环境
+      public: public
+      # 生产环境
+      pro: A01-AdministratorMaven-Prod
+      # 测试环境
+      test: A02-AdministratorMaven-Test
+      # 开发环境
+      dev: A03-AdministratorMaven-Dev
+      # 本地环境（本人中文名或英文名）${LOCALHOST_NAME:host}
+      host: A04-AdministratorMaven-DaiXu
+    # 登录
+    signIn:
+      # 公共环境
+      public:
+        username: nacos
+        password: nacos
+      # 开发环境
+      dev:
+        username: admin-dev
+        password: 123456a.
+      # 生产环境
+      pro:
+        username: admin-pro
+        password: 123456a.
+      # 测试环境
+      test:
+        username: admin-test
+        password: 123456a.
+      # 本地环境
+      host:
+        username: daixuNacos
+        password: 123456a.
+    other:
+      # 配置是否自动刷新
+      refresh: true
+
+# Nacos 配置管理
+configs:
+  nacos:
+    ################### 共享的配置文件 ###################
+    # Nacos 配置文件 加载顺序
+    # 1、后加载的优先级高；
+    # 2、extension-configs 优先级大于 shared-configs，因为在 shared-configs 之后加载
+    # 3、shared-configs 与 extension-configs 的配置列表中，在下面的配置优先级高。
+    shared:
+      # 数据库配置：数据库连接池参数配置（共享）
+      druid: share-druid.yaml
+      druid-group: ${variableBase.nacos.group.database}
+      druid-refresh: ${variableBase.nacos.other.refresh}
+      # 共享配置：knife4j 在线文档 配置文件
+      knife4j: share-knife4j.yaml
+      knife4j-group: ${variableBase.nacos.group.share}
+      knife4j-refresh: ${variableBase.nacos.other.refresh}
+      # 共享配置：mybatis-plus 配置文件
+      mybatis: share-mybatis-plus.yaml
+      mybatis-group: ${variableBase.nacos.group.share}
+      mybatis-refresh: ${variableBase.nacos.other.refresh}
+      # 数据库配置：案例模块连接配置
+      demo: platform-demo-datasource.yaml
+      demo-group: ${variableBase.nacos.group.database}
+      demo-refresh: ${variableBase.nacos.other.refresh}
+      # 数据库配置：用户模块连接配置
+      user: platform-user-datasource.yaml
+      user-group: ${variableBase.nacos.group.database}
+      user-refresh: ${variableBase.nacos.other.refresh}
+    ################### 基础配置文件 ###################
+    # 优先级大于 shared-configs，在 shared-configs 之后加载
+    extension:
+      # 默认配置：基础配置（常用）
+      base: extension-config-base.yaml
+      base-group: ${variableBase.nacos.group.default}
+      base-refresh: ${variableBase.nacos.other.refresh}
+      # 数据库配置：连接地址配置（常用）
+      database: extension-config-database.yaml
+      database-group: ${variableBase.nacos.group.database}
+      database-refresh: ${variableBase.nacos.other.refresh}
+      # 数据库配置：数据库连接池地址配置（共享）
+      druid: share-datasource.yaml
+      druid-group: ${variableBase.nacos.group.database}
+      druid-refresh: ${variableBase.nacos.other.refresh}

@@ -14,9 +14,6 @@ server:
   port: 9090
 
 spring:
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
   application:
     #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
     name: ${config.application_name}
@@ -25,10 +22,10 @@ spring:
     active: @profileActive@
     # 配置文件加载分组
     group:
-      dev: config,dev
-      prod: config,prod
-      test: config,test
-      host: config,datahost
+      dev: sharedVariable,config,dev
+      prod: sharedVariable,config,prod
+      test: sharedVariable,config,test
+      host: sharedVariable,config,datahost
 
   cloud:
     nacos:
@@ -52,6 +49,10 @@ spring:
           - data-id: ${configs.nacos.shared.mybatis}
             group: ${configs.nacos.shared.mybatis-group}
             refresh: ${configs.nacos.shared.mybatis-refresh}
+          # 共享配置：knife4j 在线文档 配置文件
+          - data-id: ${configs.nacos.shared.knife4j}
+            group: ${configs.nacos.shared.knife4j-group}
+            refresh: ${configs.nacos.shared.knife4j-refresh}
           # 数据库配置：数据库连接池参数配置（共享）
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}

@@ -52,8 +52,10 @@ configs:
   swagger:
     # 是否开启 swagger
     enabled: true
-
-#swagger:
-#  push:
-#    enable: true
 ################### Swagger 配置 end ###################
+
+################### Swagger-ui 优化 knife4j 配置 start ###################
+  knife4j:
+    # 是否开启 knife4j
+    enabled: true
+################### Swagger-ui 优化 knife4j 配置 end ###################
