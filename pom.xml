@@ -56,7 +56,7 @@
         <swagger2.annotations.version>1.5.22</swagger2.annotations.version>
         <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
         <springboot.validation.version>2.6.7</springboot.validation.version>
-        <knife4j.spring.boot.starter.version>2.0.9</knife4j.spring.boot.starter.version>
+        <knife4j.spring.boot.starter.version>3.0.3</knife4j.spring.boot.starter.version>
     </properties>
 
     <!--依赖的顺序，越靠前面优先级越高-->
@@ -170,11 +170,11 @@
 
             <!-- swagger 在线接口文档 start -->
             <!--swagger2-plus-->
-            <dependency>
-                <groupId>cn.weiguangfu</groupId>
-                <artifactId>springfox-swagger2-plus</artifactId>
-                <version>${swagger2.plus.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>cn.weiguangfu</groupId>-->
+<!--                <artifactId>springfox-swagger2-plus</artifactId>-->
+<!--                <version>${swagger2.plus.version}</version>-->
+<!--            </dependency>-->
 
             <!--swagger ui knife4j 优化-->
             <dependency>

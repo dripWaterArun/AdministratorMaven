@@ -45,14 +45,14 @@ spring:
         namespace: ${configs.nacos.config.namespace}
         # 用于共享的配置文件
         shared-configs:
-          # 共享配置：mybatis-plus 配置文件
-          - data-id: ${configs.nacos.shared.mybatis}
-            group: ${configs.nacos.shared.mybatis-group}
-            refresh: ${configs.nacos.shared.mybatis-refresh}
           # 共享配置：knife4j 在线文档 配置文件
           - data-id: ${configs.nacos.shared.knife4j}
             group: ${configs.nacos.shared.knife4j-group}
             refresh: ${configs.nacos.shared.knife4j-refresh}
+          # 共享配置：mybatis-plus 配置文件
+          - data-id: ${configs.nacos.shared.mybatis}
+            group: ${configs.nacos.shared.mybatis-group}
+            refresh: ${configs.nacos.shared.mybatis-refresh}
           # 数据库配置：数据库连接池参数配置（共享）
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}

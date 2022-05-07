@@ -32,10 +32,10 @@ public class BackendDemoController {
      * @author daixu
      * @date 2021-06-28
      */
-    @GetMapping("/demo")
-    @ApiOperation(value = "查询测试详情（分页查询）",notes="@author daixu @date 2021-06-28")
-    public List<BackendDemo> listDemo(){
-        return backendDemoService.listDemo();
-    }
+//    @GetMapping("/demo")
+//    @ApiOperation(value = "查询测试详情（分页查询）",notes="@author daixu @date 2021-06-28")
+//    public List<BackendDemo> listDemo(){
+//        return backendDemoService.listDemo();
+//    }
 
 }

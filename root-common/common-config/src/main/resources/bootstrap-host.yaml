@@ -56,6 +56,6 @@ configs:
 
 ################### Swagger-ui 优化 knife4j 配置 start ###################
   knife4j:
-    # 是否开启 knife4j
-    enabled: true
+    # knife4j 开启生产环境屏蔽功能
+    productionShield: false
 ################### Swagger-ui 优化 knife4j 配置 end ###################

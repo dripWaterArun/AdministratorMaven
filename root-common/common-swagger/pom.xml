@@ -35,10 +35,10 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>cn.weiguangfu</groupId>
-            <artifactId>springfox-swagger2-plus</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>cn.weiguangfu</groupId>-->
+<!--            <artifactId>springfox-swagger2-plus</artifactId>-->
+<!--        </dependency>-->
 
         <!-- swagger 增强 knife4j -->
         <dependency>
@@ -47,14 +47,14 @@
         </dependency>
 
         <!--防止报错 Illegal DefaultValue null for parameter type integer-->
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-models</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.swagger</groupId>-->
+<!--            <artifactId>swagger-annotations</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>io.swagger</groupId>-->
+<!--            <artifactId>swagger-models</artifactId>-->
+<!--        </dependency>-->
 
     </dependencies>
 </project>

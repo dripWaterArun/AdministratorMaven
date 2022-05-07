@@ -17,7 +17,7 @@ public class NacosController {
 //    @Value("${your.configuration}")
 //    private String useLocalCache;
 //
-    @Value("${spring.datasource.url}")
+    @Value("${knife4j.basic.username}")
     private String yours;
 //
 //    @Value("${config}")

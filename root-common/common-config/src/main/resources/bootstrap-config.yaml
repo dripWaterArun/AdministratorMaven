@@ -4,3 +4,7 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+knife4j:
+  # 开启增强配置
+  enable: true

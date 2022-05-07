@@ -16,7 +16,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @date 2021-06-23
  */
 @EnableAsync
-@EnableWebMvc
 @EnableCustomSwagger2
 @SpringBootApplication
 @EnableFeignClients//(defaultConfiguration = FeignConfiguration.class)
