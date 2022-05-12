@@ -73,19 +73,16 @@ knife4j:
   nacos:
     enable: true
     serviceUrl: http://123.56.31.57:8848/nacos/
-    routeAuth:
+    serviceAuth:
       enable: true
       username: nacos
       password: nacos
     routes:
-#      - name: 订单服务
-#        uri: 127.0.0.1
-#        serviceName: platform-backend-demo-daixu
-#        location: /v2/api-docs?group=default
-#        servicePath: /
       - name: 用户体系
         namespaceId: A04-AdministratorMaven-DaiXu
-#        uri: 127.0.0.1
+#        uri: 127.0.0.1:9090
         serviceName: platform-api-sso-daixu
-#        location: /v2/api-docs?group=default
-#        servicePath: /
+        # 服务的swagger地址 填写前试试能不能直接访问,尽量不要使用v2版本，该版本获取的json格式可能存在异常
+        location: /v2/api-docs?group=default
+        servicePath: /
+        groupName: DEFAULT_GROUP
