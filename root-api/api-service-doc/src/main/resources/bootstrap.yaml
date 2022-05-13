@@ -3,11 +3,11 @@
 #变量名配置（读取环境变量）
 config:
   app_name: ${LOCALHOST_NAME:pro}
-  application_name: platform-api-sso-${config.app_name}
+  application_name: platform-api-doc-${config.app_name}
 
 #端口号
 server:
-  port: 9090
+  port: 9091
 
 spring:
   application:
@@ -42,15 +42,3 @@ spring:
           - data-id: ${configs.nacos.shared.knife4j}
             group: ${configs.nacos.shared.knife4j-group}
             refresh: ${configs.nacos.shared.knife4j-refresh}
-          # 共享配置：mybatis-plus 配置文件
-          - data-id: ${configs.nacos.shared.mybatis}
-            group: ${configs.nacos.shared.mybatis-group}
-            refresh: ${configs.nacos.shared.mybatis-refresh}
-          # 数据库配置：数据库连接池参数配置（共享）
-          - data-id: ${configs.nacos.shared.druid}
-            group: ${configs.nacos.shared.druid-group}
-            refresh: ${configs.nacos.shared.druid-refresh}
-          # 数据库配置：用户模块连接配置 platform-user-datasource
-          - data-id: ${configs.nacos.shared.user}
-            group: ${configs.nacos.shared.user-group}
-            refresh: ${configs.nacos.shared.user-refresh}

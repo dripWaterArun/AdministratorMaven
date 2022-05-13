@@ -20,6 +20,7 @@
         <module>common-log</module>
         <module>common-datascope</module>
         <module>common-datasource</module>
+        <module>common-dataconfig</module>
     </modules>
 
     <dependencyManagement>

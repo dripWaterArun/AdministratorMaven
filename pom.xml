@@ -52,11 +52,12 @@
         <httpcomponents.version>4.5.2</httpcomponents.version>
         <pagehelper.boot.version>1.3.0</pagehelper.boot.version>
         <swagger2.plus.version>2.9.2-1-beta2</swagger2.plus.version>
+        <knife4j.springboot.version>3.0.3</knife4j.springboot.version>
+        <knife4j.aggregation.version>2.0.9</knife4j.aggregation.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger2.annotations.version>1.5.22</swagger2.annotations.version>
         <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
         <springboot.validation.version>2.6.7</springboot.validation.version>
-        <knife4j.spring.boot.starter.version>3.0.3</knife4j.spring.boot.starter.version>
     </properties>
 
     <!--依赖的顺序，越靠前面优先级越高-->
@@ -168,32 +169,31 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!-- swagger 在线接口文档 start -->
-            <!--swagger2-plus-->
-<!--            <dependency>-->
-<!--                <groupId>cn.weiguangfu</groupId>-->
-<!--                <artifactId>springfox-swagger2-plus</artifactId>-->
-<!--                <version>${swagger2.plus.version}</version>-->
-<!--            </dependency>-->
-
             <!--swagger ui knife4j 优化-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.spring.boot.starter.version}</version>
+                <version>${knife4j.springboot.version}</version>
+            </dependency>
+
+            <!--Knife4jAggregation 聚合文档 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
+                <version>${knife4j.aggregation.version}</version>
             </dependency>
 
             <!--防止swagger2 报错 Illegal DefaultValue null for parameter type integer-->
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${swagger2.annotations.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-models</artifactId>
-                <version>${swagger2.annotations.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.swagger</groupId>-->
+<!--                <artifactId>swagger-annotations</artifactId>-->
+<!--                <version>${swagger2.annotations.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>io.swagger</groupId>-->
+<!--                <artifactId>swagger-models</artifactId>-->
+<!--                <version>${swagger2.annotations.version}</version>-->
+<!--            </dependency>-->
             <!-- swagger 在线接口文档 end -->
 
             <!--Activiti 7-->

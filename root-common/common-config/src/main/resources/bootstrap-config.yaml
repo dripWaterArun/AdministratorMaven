@@ -8,22 +8,4 @@ spring:
 knife4j:
   # 开启增强配置
   enable: true
-#  nacos:
-#    enable: true
-#    serviceUrl: http://123.56.31.57:8848/nacos/
-#    routes:
-##      - name: 案例服务
-##        serviceName: platform-backend-demo-daixu
-##        groupName: test
-##        namespaceId: test
-##        clusters: test
-##        location: /v2/api-docs?group=default
-##        swaggerVersion: 2.0
-#      - name: 单点登录服务
-#        uri: 127.0.0.1:9090
-#        serviceName: platform-api-sso
-#        groupName: test
-#        namespaceId: A04-AdministratorMaven-DaiXu
-#        location: /v2/api-docs?group=default
-#        swaggerVersion: 2.0
 

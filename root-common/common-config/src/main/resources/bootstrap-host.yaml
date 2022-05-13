@@ -58,4 +58,9 @@ configs:
   knife4j:
     # knife4j 开启生产环境屏蔽功能
     productionShield: false
+    aggregation:
+      enable: true
+      routes:
+        uri: 127.0.0.1:9090
+        name: 用户体系1
 ################### Swagger-ui 优化 knife4j 配置 end ###################
