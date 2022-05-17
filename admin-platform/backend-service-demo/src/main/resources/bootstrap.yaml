@@ -49,6 +49,10 @@ spring:
           - data-id: ${configs.nacos.shared.knife4j}
             group: ${configs.nacos.shared.knife4j-group}
             refresh: ${configs.nacos.shared.knife4j-refresh}
+          # 共享配置：knife4j 聚合文档配置
+          - data-id: ${configs.nacos.shared.knife4j-aggregatio}
+            group: ${configs.nacos.shared.knife4j-aggregatio-group}
+            refresh: ${configs.nacos.shared.knife4j-aggregatio-refresh}
           # 共享配置：mybatis-plus 配置文件
           - data-id: ${configs.nacos.shared.mybatis}
             group: ${configs.nacos.shared.mybatis-group}
@@ -57,7 +61,7 @@ spring:
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # 数据库配置：案例模块连接配置 platform-demo-datasource
+          # 数据库配置：案例模块配置 platform-demo-service
           - data-id: ${configs.nacos.shared.demo}
             group: ${configs.nacos.shared.demo-group}
             refresh: ${configs.nacos.shared.demo-refresh}

@@ -55,12 +55,17 @@ configs:
 ################### Swagger 配置 end ###################
 
 ################### Swagger-ui 优化 knife4j 配置 start ###################
+  ############## knife4j 相关配置 ##############
   knife4j:
     # knife4j 开启生产环境屏蔽功能
     productionShield: false
-    aggregation:
+    # 开启Swagger的Basic认证功能
+    basic:
       enable: true
-      routes:
-        uri: 127.0.0.1:9090
-        name: 用户体系1
+      # Basic认证用户名
+      username: admin-daixu
+      # Basic认证密码
+      password: Qing3292.
+    cloud:
+        enable: true
 ################### Swagger-ui 优化 knife4j 配置 end ###################

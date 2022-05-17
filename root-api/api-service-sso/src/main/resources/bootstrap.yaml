@@ -50,7 +50,7 @@ spring:
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # 数据库配置：用户模块连接配置 platform-user-datasource
-          - data-id: ${configs.nacos.shared.user}
-            group: ${configs.nacos.shared.user-group}
-            refresh: ${configs.nacos.shared.user-refresh}
+          # 数据库配置：单点登陆模块配置 platform-sso-service
+          - data-id: ${configs.nacos.shared.sso}
+            group: ${configs.nacos.shared.sso-group}
+            refresh: ${configs.nacos.shared.sso-refresh}

@@ -27,6 +27,8 @@ variableBase:
       default: DEFAULT_GROUP
       # 数据库相关配置
       database: DATABASE_GROUP
+      # 当前服务相关配置
+      onlyService: ONLY_SERVICE_GROUP
     #地址
     addr:
       # 开发环境
@@ -92,18 +94,26 @@ configs:
       knife4j: share-knife4j.yaml
       knife4j-group: ${variableBase.nacos.group.share}
       knife4j-refresh: ${variableBase.nacos.other.refresh}
+      # 共享配置：knife4j 聚合文档配置
+      knife4j-aggregatio: share-config-knife4j-aggregatio.yaml
+      knife4j-aggregatio-group: ${variableBase.nacos.group.share}
+      knife4j-aggregatio-refresh: ${variableBase.nacos.other.refresh}
       # 共享配置：mybatis-plus 配置文件
       mybatis: share-mybatis-plus.yaml
       mybatis-group: ${variableBase.nacos.group.share}
       mybatis-refresh: ${variableBase.nacos.other.refresh}
       # 数据库配置：案例模块连接配置
-      demo: platform-demo-datasource.yaml
-      demo-group: ${variableBase.nacos.group.database}
+      demo: platform-demo-service.yaml
+      demo-group: ${variableBase.nacos.group.onlyService}
       demo-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库配置：用户模块连接配置
-      user: platform-user-datasource.yaml
-      user-group: ${variableBase.nacos.group.database}
-      user-refresh: ${variableBase.nacos.other.refresh}
+      # 数据库配置：单点登陆模块连接配置
+      sso: platform-sso-service.yaml
+      sso-group: ${variableBase.nacos.group.onlyService}
+      sso-refresh: ${variableBase.nacos.other.refresh}
+      # 数据库配置：单点登陆模块连接配置
+      doc: plugin-doc-service.yaml
+      doc-group: ${variableBase.nacos.group.onlyService}
+      doc-refresh: ${variableBase.nacos.other.refresh}
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:

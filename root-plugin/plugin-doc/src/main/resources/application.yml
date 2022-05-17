@@ -15,16 +15,3 @@ spring:
         username: ${configs.nacos.config.signIn.username}
         # nacos 鉴权登录 密码
         password: ${configs.nacos.config.signIn.password}
-
-configs:
-  swagger:
-    # 文档标题
-    title: 聚合文档
-    # 电子邮箱
-    email: daixu_cisco@sina.cn
-    # 作者
-    author: daixu
-    # 版本号
-    version: 1.1
-    # 描述
-    description: 聚合文档
