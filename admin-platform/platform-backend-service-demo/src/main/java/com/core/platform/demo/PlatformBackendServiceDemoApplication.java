@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * 测试案例 启动类
@@ -19,9 +18,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableCustomSwagger2
 @SpringBootApplication
 @EnableFeignClients//(defaultConfiguration = FeignConfiguration.class)
-public class PlatformBackendDemoApplication {
+public class PlatformBackendServiceDemoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(PlatformBackendDemoApplication.class,args);
+        SpringApplication.run(PlatformBackendServiceDemoApplication.class,args);
         System.out.println("(♥◠‿◠)ﾉﾞ  案例模块启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 "  _________ __                 __      _________                                          _____     .__  .__         \n" +
                 " /   _____//  |______ ________/  |_   /   _____/__ __   ____  ____  ____   ______ _______/ ____\\_ __|  | |  | ___.__.\n" +

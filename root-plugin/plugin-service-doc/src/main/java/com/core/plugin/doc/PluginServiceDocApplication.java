@@ -15,9 +15,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableFeignClients
 @EnableCustomSwagger2
 @SpringBootApplication
-public class PluginDocApplication {
+public class PluginServiceDocApplication {
     public static void main(String[] args) {
-        SpringApplication.run(PluginDocApplication.class,args);
+        SpringApplication.run(PluginServiceDocApplication.class,args);
         System.out.println("(♥◠‿◠)ﾉﾞ  聚合文档模块启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 "  _________ __                 __      _________                                          _____     .__  .__         \n" +
                 " /   _____//  |______ ________/  |_   /   _____/__ __   ____  ____  ____   ______ _______/ ____\\_ __|  | |  | ___.__.\n" +

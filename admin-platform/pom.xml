@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>backend-service-demo</module>
+        <module>platform-backend-service-demo</module>
     </modules>
 
 

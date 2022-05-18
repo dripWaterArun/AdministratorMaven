@@ -102,15 +102,15 @@ configs:
       mybatis: share-mybatis-plus.yaml
       mybatis-group: ${variableBase.nacos.group.share}
       mybatis-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库配置：案例模块连接配置
-      demo: platform-demo-service.yaml
+      # 当前服务配置：演示案例模块配置
+      demo: platform-backend-demo-service.yaml
       demo-group: ${variableBase.nacos.group.onlyService}
       demo-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库配置：单点登陆模块连接配置
-      sso: platform-sso-service.yaml
+      # 当前服务配置：单点登陆模块配置
+      sso: api-sso-service.yaml
       sso-group: ${variableBase.nacos.group.onlyService}
       sso-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库配置：单点登陆模块连接配置
+      # 当前服务配置：聚合文档模块配置
       doc: plugin-doc-service.yaml
       doc-group: ${variableBase.nacos.group.onlyService}
       doc-refresh: ${variableBase.nacos.other.refresh}

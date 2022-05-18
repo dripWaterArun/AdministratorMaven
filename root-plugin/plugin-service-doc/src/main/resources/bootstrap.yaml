@@ -2,16 +2,12 @@
 
 #变量名配置（读取环境变量）
 config:
-  #的意思是，先获取环境变量 LOCALHOST_NAME，如果不为空，则value等于环境变量 LOCALHOST_NAME 的值，否则等于 host。
-  #这样的好处就在于，我们可以在生产环境服务器上配置对应的环境变量，通过环境变量来控制当前环境下，读取哪一个yml文件，
-  #这样的话，就可以直接打包使用，不用修改任何配置。
-  #注：先打开 idea 再配置环境变量，会读取不到新配置的环境变量，需要重启电脑解决 ${LOCALHOST_NAME:prod}
-  app_name: ${LOCALHOST_NAME:prod}
-  application_name: platform-backend-demo-${config.app_name}
+  app_name: ${LOCALHOST_NAME:pro}
+  application_name: plugin-service-doc-${config.app_name}
 
 #端口号
 server:
-  port: 9089
+  port: 9091
 
 spring:
   application:
@@ -36,9 +32,6 @@ spring:
         password: ${configs.nacos.config.signIn.password}
         # 是否开启配置中心 默认 true
         enabled: true
-        #file-extension: yaml
-        #默认是 spring.application.name 的值，也可以通过 prefix 来配置
-        #prefix: mybatis
         # nacos 服务发现 地址
         server-addr: ${configs.nacos.config.addr}
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
@@ -53,15 +46,7 @@ spring:
           - data-id: ${configs.nacos.shared.knife4j-aggregatio}
             group: ${configs.nacos.shared.knife4j-aggregatio-group}
             refresh: ${configs.nacos.shared.knife4j-aggregatio-refresh}
-          # 共享配置：mybatis-plus 配置文件
-          - data-id: ${configs.nacos.shared.mybatis}
-            group: ${configs.nacos.shared.mybatis-group}
-            refresh: ${configs.nacos.shared.mybatis-refresh}
-          # 数据库配置：数据库连接池参数配置（共享）
-          - data-id: ${configs.nacos.shared.druid}
-            group: ${configs.nacos.shared.druid-group}
-            refresh: ${configs.nacos.shared.druid-refresh}
-          # 数据库配置：案例模块配置 platform-demo-service
-          - data-id: ${configs.nacos.shared.demo}
-            group: ${configs.nacos.shared.demo-group}
-            refresh: ${configs.nacos.shared.demo-refresh}
+          # 数据库配置：聚合文档模块配置 platform-doc-service
+          - data-id: ${configs.nacos.shared.doc}
+            group: ${configs.nacos.shared.doc-group}
+            refresh: ${configs.nacos.shared.doc-refresh}

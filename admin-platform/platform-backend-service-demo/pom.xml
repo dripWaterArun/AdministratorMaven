@@ -10,7 +10,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <description>案例展示模块</description>
-    <artifactId>backend-service-demo</artifactId>
+    <artifactId>platform-backend-service-demo</artifactId>
 
     <dependencies>
 
