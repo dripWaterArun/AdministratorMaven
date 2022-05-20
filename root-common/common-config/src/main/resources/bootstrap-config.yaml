@@ -1,4 +1,4 @@
-# 共通基础配置
+# 共通基础配置 ant_path_matcher
 spring:
   # 路径匹配规则（用于 knife4j 引入后无法启动 省去启动类加上 @EnableWebMvc 注解）
   mvc:
