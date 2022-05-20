@@ -1,7 +1,7 @@
-package com.core.platform.sso.mapper;
+package com.core.api.sso.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.core.platform.sso.po.UserPo;
+import com.core.api.sso.po.UserPo;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

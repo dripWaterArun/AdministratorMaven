@@ -1,4 +1,4 @@
-package com.core.platform.sso.po;
+package com.core.api.sso.po;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

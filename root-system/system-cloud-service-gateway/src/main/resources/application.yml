@@ -15,6 +15,12 @@ spring:
         username: ${configs.nacos.config.signIn.username}
         # nacos 鉴权登录 密码
         password: ${configs.nacos.config.signIn.password}
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          # 让 gateway 通过服务发现组件找到其他的微服务
+          lowerCaseServiceId: true
 
 # actuator
 #management:

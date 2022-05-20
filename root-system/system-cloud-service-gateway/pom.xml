@@ -9,11 +9,120 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>system-springcloud-gateway</artifactId>
+    <artifactId>system-cloud-service-gateway</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+
+        <!--配置中心-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-config</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
+            <!-- 排除的依赖 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <!--共通 api-->
+                <exclusion>
+                    <groupId>org.example</groupId>
+                    <artifactId>module-api-common</artifactId>
+                </exclusion>
+                <!--工具类 util -->
+                <exclusion>
+                    <groupId>org.example</groupId>
+                    <artifactId>common-util</artifactId>
+                </exclusion>
+                <!--springboot 参数校验-->
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-validation</artifactId>
+                </exclusion>
+                <!-- swagger -->
+                <exclusion>
+                    <groupId>org.example</groupId>
+                    <artifactId>common-swagger</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 网关 gateway-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!--引入负载均衡-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--打包部署-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                        </exclude>
+                    </excludes>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+            <!--打包部署-->
+
+            <!-- 打出项目依赖的第三方包，放在lib下面(**相当于拷贝项目的jar包**) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/lib</outputDirectory>
+                            <excludeTransitive>false</excludeTransitive>
+                            <stripVersion>false</stripVersion>
+                            <includeScope>runtime</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+        <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
+        <resources>
+            <!--配置可以读取 pom 文件变量-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**.*</include>
+                    <include>**/**.*</include>
+                </includes>
+                <!--开启过滤，用指定的参数替换directory下的文件中的参数-->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+    </build>
 
 </project>

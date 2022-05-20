@@ -1,9 +1,9 @@
-package com.core.platform.sso.controller;
+package com.core.api.sso.controller;
 
 //import cn.weiguangfu.swagger2.plus.annotation.ApiPlus;
 //import cn.weiguangfu.swagger2.plus.annotation.ApiPlus;
-import com.core.platform.sso.po.UserPo;
-import com.core.platform.sso.service.ILoginService;
+import com.core.api.sso.service.ILoginService;
+import com.core.api.sso.po.UserPo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

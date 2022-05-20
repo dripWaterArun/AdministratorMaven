@@ -1,0 +1,52 @@
+#bootstrap.yml 配置文件加载顺序优先于application.yml，用于配置不常改动的内容
+
+#变量名配置（读取环境变量）
+config:
+  app_name: ${LOCALHOST_NAME:pro}
+  application_name: system-cloud-service-gateway-${config.app_name}
+
+#端口号
+server:
+  port: 19060
+
+spring:
+  application:
+    #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
+    name: ${config.application_name}
+  profiles:
+    #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境 host：本地环境）
+    active: @profileActive@
+    # 配置文件加载分组
+    group:
+      dev: sharedVariable,config,dev
+      prod: sharedVariable,config,prod
+      test: sharedVariable,config,test
+      host: sharedVariable,config,datahost
+
+  cloud:
+    nacos:
+      config:
+        # nacos 鉴权登录 账号
+        username: ${configs.nacos.config.signIn.username}
+        # nacos 鉴权登录 密码
+        password: ${configs.nacos.config.signIn.password}
+        # 是否开启配置中心 默认 true
+        enabled: true
+        # nacos 服务发现 地址
+        server-addr: ${configs.nacos.config.addr}
+        # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
+        namespace: ${configs.nacos.config.namespace}
+        # 用于共享的配置文件
+#        shared-configs:
+#          # 共享配置：knife4j 在线文档 配置文件
+#          - data-id: ${configs.nacos.shared.knife4j}
+#            group: ${configs.nacos.shared.knife4j-group}
+#            refresh: ${configs.nacos.shared.knife4j-refresh}
+#          # 共享配置：knife4j 聚合文档配置
+#          - data-id: ${configs.nacos.shared.knife4j-aggregatio}
+#            group: ${configs.nacos.shared.knife4j-aggregatio-group}
+#            refresh: ${configs.nacos.shared.knife4j-aggregatio-refresh}
+#          # 数据库配置：聚合文档模块配置 platform-doc-service
+#          - data-id: ${configs.nacos.shared.doc}
+#            group: ${configs.nacos.shared.doc-group}
+#            refresh: ${configs.nacos.shared.doc-refresh}

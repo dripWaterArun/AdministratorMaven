@@ -1,4 +1,4 @@
-package com.core.platform.sso;//import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
+package com.core.api.sso;//import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
 import com.core.swagger.annotation.EnableCustomSwagger2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * 单点登录 微服务
