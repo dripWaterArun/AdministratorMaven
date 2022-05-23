@@ -102,18 +102,22 @@ configs:
       mybatis: share-mybatis-plus.yaml
       mybatis-group: ${variableBase.nacos.group.share}
       mybatis-refresh: ${variableBase.nacos.other.refresh}
-      # 当前服务配置：演示案例模块配置
+      # platform：当前服务配置：演示案例模块配置
       demo: platform-backend-demo-service.yaml
       demo-group: ${variableBase.nacos.group.onlyService}
       demo-refresh: ${variableBase.nacos.other.refresh}
-      # 当前服务配置：单点登陆模块配置
+      # api：当前服务配置：单点登陆模块配置
       sso: api-sso-service.yaml
       sso-group: ${variableBase.nacos.group.onlyService}
       sso-refresh: ${variableBase.nacos.other.refresh}
-      # 当前服务配置：聚合文档模块配置
+      # plugin：当前服务配置：聚合文档模块配置
       doc: plugin-doc-service.yaml
       doc-group: ${variableBase.nacos.group.onlyService}
       doc-refresh: ${variableBase.nacos.other.refresh}
+      # system：当前服务配置：当前服务配置：springCloud Gateway 模块配置
+      gateway: system-cloud-gateway-service.yaml
+      gateway-group: ${variableBase.nacos.group.onlyService}
+      gateway-refresh: ${variableBase.nacos.other.refresh}
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
