@@ -38,26 +38,28 @@
 
     <!-- 自定义属性标签 统一管理jar包版本 -->
     <properties>
-        <p6spy.version>3.8.7</p6spy.version>
-        <druid.version>1.1.20</druid.version>
+<!--        <p6spy.version>3.8.7</p6spy.version>-->
+        <druid.version>1.2.9</druid.version>
         <lombok.version>1.16.10</lombok.version>
         <rocketmq.version>2.1.1</rocketmq.version>
         <fastjson.version>1.2.47</fastjson.version>
-        <nacos.version>2.2.3.RELEASE</nacos.version>
         <jsqlparser.version>3.1</jsqlparser.version>
         <activiti.version>7.1.0.M4</activiti.version>
         <platform.version>Cairo-SR8</platform.version>
         <freemarker.version>2.3.28</freemarker.version>
-        <mybatis.plus.version>3.3.1</mybatis.plus.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <spring-cloud.version>2021.0.2</spring-cloud.version>
         <httpcomponents.version>4.5.2</httpcomponents.version>
-        <pagehelper.boot.version>1.3.0</pagehelper.boot.version>
-        <swagger2.plus.version>2.9.2-1-beta2</swagger2.plus.version>
-        <knife4j.springboot.version>3.0.3</knife4j.springboot.version>
-        <knife4j.aggregation.version>2.0.9</knife4j.aggregation.version>
+        <pagehelper-boot.version>1.3.0</pagehelper-boot.version>
+        <knife4j-springboot.version>3.0.3</knife4j-springboot.version>
+        <knife4j-aggregation.version>2.0.9</knife4j-aggregation.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <swagger2.annotations.version>1.5.22</swagger2.annotations.version>
-        <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
-        <springboot.validation.version>2.6.7</springboot.validation.version>
+<!--        <swagger2-annotations.version>1.5.22</swagger2-annotations.version>-->
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
+        <springboot-validation.version>2.6.7</springboot-validation.version>
+        <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+        <p6spy-spring-boot-starter.version>1.8.0</p6spy-spring-boot-starter.version>
+
     </properties>
 
     <!--依赖的顺序，越靠前面优先级越高-->
@@ -68,7 +70,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2021.0.2</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -77,7 +79,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.7.RELEASE</version>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -86,7 +88,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.java.version}</version>
+                <version>${mysql-connector-java.version}</version>
             </dependency>
 
             <!--Alibaba DataBase Connection Pool 阿里巴巴的数据库连接池-->
@@ -97,34 +99,41 @@
             </dependency>
 
             <!--p6spy 组件 执行 SQL 分析打印-->
+<!--            <dependency>-->
+<!--                <groupId>p6spy</groupId>-->
+<!--                <artifactId>p6spy</artifactId>-->
+<!--                <version>${p6spy.version}</version>-->
+<!--            </dependency>-->
+
+            <!--p6spy 组件 执行 SQL 分析打印-->
             <dependency>
-                <groupId>p6spy</groupId>
-                <artifactId>p6spy</artifactId>
-                <version>${p6spy.version}</version>
+                <groupId>com.github.gavlyukovskiy</groupId>
+                <artifactId>p6spy-spring-boot-starter</artifactId>
+                <version>${p6spy-spring-boot-starter.version}</version>
             </dependency>
 
             <!-- ################ mybatis-plus start ################ -->
             <!--idea中下载Mybatis Plugin插件-->
             <!--mybatis-plus-->
-            <dependency>
+<!--            <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus</artifactId>
                 <version>${mybatis.plus.version}</version>
-            </dependency>
+            </dependency>-->
 
             <!--mybatis-plus整合spring-boot-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis.plus.version}</version>
+                <version>${mybatis-plus.version}</version>
             </dependency>
 
             <!-- mybatis plus 代码生成器依赖 -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
-                <version>${mybatis.plus.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.baomidou</groupId>-->
+<!--                <artifactId>mybatis-plus-generator</artifactId>-->
+<!--                <version>${mybatis.plus.version}</version>-->
+<!--            </dependency>-->
 
             <!-- mybatis plus 代码生成器模板 -->
             <dependency>
@@ -138,7 +147,7 @@
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper.boot.version}</version>
+                <version>${pagehelper-boot.version}</version>
             </dependency>
 
             <dependency>
@@ -152,7 +161,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-validation</artifactId>
-                <version>${springboot.validation.version}</version>
+                <version>${springboot-validation.version}</version>
             </dependency>
 
             <!--lombok 插件-->
@@ -173,14 +182,14 @@
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.springboot.version}</version>
+                <version>${knife4j-springboot.version}</version>
             </dependency>
 
             <!--Knife4jAggregation 聚合文档 -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
-                <version>${knife4j.aggregation.version}</version>
+                <version>${knife4j-aggregation.version}</version>
             </dependency>
 
             <!--防止swagger2 报错 Illegal DefaultValue null for parameter type integer-->
@@ -201,8 +210,8 @@
                 <groupId>org.activiti</groupId>
                 <artifactId>activiti-spring-boot-starter</artifactId>
                 <version>${activiti.version}</version>
-                <!--移除mybatis 因为和mybatis-plus依赖冲突-->
                 <exclusions>
+                    <!--移除mybatis 因为和mybatis-plus依赖冲突-->
                     <exclusion>
                         <groupId>org.mybatis</groupId>
                         <artifactId>mybatis</artifactId>
@@ -272,6 +281,7 @@
                 <profileActive>${env.SERVICE_HOME}</profileActive>
             </properties>
         </profile>
+
     </profiles>
 
 </project>

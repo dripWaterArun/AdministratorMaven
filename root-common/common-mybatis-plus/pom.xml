@@ -11,22 +11,26 @@
     <description>mybatis-plus模块</description>
     <artifactId>common-mybatis-plus</artifactId>
 
-
     <dependencies>
-
-        <!-- ################ mybatis-plus start ################ -->
-        <!--mybatis-plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-        </dependency>
 
         <!--mybatis-plus整合spring-boot-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-        <!-- ################ mybatis-plus end ################ -->
+
+        <!--p6spy 组件 执行 SQL 分析打印-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.gavlyukovskiy</groupId>-->
+<!--            <artifactId>p6spy-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+
+        <!--注入数据源-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-datasource</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!--注入日志log-->
         <dependency>
@@ -36,19 +40,57 @@
             <optional>true</optional>
         </dependency>
 
-        <!--注入数据源-->
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>common-datasource</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <!--p6spy 组件 执行 SQL 分析打印-->
-        <dependency>
-            <groupId>p6spy</groupId>
-            <artifactId>p6spy</artifactId>
-        </dependency>
-
     </dependencies>
+
+    <profiles>
+        <!-- 开发环境 -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profileActive>dev</profileActive>
+            </properties>
+<!--            <dependencies>-->
+<!--                &lt;!&ndash;p6spy 组件 执行 SQL 分析打印&ndash;&gt;-->
+<!--                <dependency>-->
+<!--                    <groupId>com.github.gavlyukovskiy</groupId>-->
+<!--                    <artifactId>p6spy-spring-boot-starter</artifactId>-->
+<!--                </dependency>-->
+<!--            </dependencies>-->
+        </profile>
+
+        <!-- 测试环境 -->
+        <profile>
+            <id>test</id>
+            <properties>
+                <profileActive>test</profileActive>
+            </properties>
+            <dependencies>
+                <!--p6spy 组件 执行 SQL 分析打印-->
+                <dependency>
+                    <groupId>com.github.gavlyukovskiy</groupId>
+                    <artifactId>p6spy-spring-boot-starter</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <!-- 本地环境 -->
+        <profile>
+            <id>host</id>
+            <properties>
+                <profileActive>${env.SERVICE_HOME}</profileActive>
+            </properties>
+            <dependencies>
+                <!--p6spy 组件 执行 SQL 分析打印-->
+                <dependency>
+                    <groupId>com.github.gavlyukovskiy</groupId>
+                    <artifactId>p6spy-spring-boot-starter</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
 
 </project>

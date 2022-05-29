@@ -8,3 +8,20 @@ spring:
 knife4j:
   # 开启增强配置
   enable: true
+
+
+#  druid:
+#    filter:
+#      stat:
+#         meregSql: true
+#         logSlowSql: true
+#         slowSqlMillis: 3000
+#         enabled: true
+#         dbType: mysql
+#        wall:
+#          config:
+#            multi-statement-allow: false
+#          enable: true
+#          db-type: mysql
+#        slf4j:
+#          statement-executable-sql-log-enable: true

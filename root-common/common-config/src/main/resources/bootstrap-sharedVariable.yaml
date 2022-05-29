@@ -86,7 +86,7 @@ configs:
     # 2、extension-configs 优先级大于 shared-configs，因为在 shared-configs 之后加载
     # 3、shared-configs 与 extension-configs 的配置列表中，在下面的配置优先级高。
     shared:
-      # 数据库配置：数据库连接池参数配置（共享）
+      # 数据库配置：数据库连接池参数配置文件（共享）
       druid: share-druid.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: ${variableBase.nacos.other.refresh}
@@ -94,42 +94,50 @@ configs:
       knife4j: share-knife4j.yaml
       knife4j-group: ${variableBase.nacos.group.share}
       knife4j-refresh: ${variableBase.nacos.other.refresh}
-      # 共享配置：knife4j 聚合文档配置
+      # 共享配置：knife4j 聚合文档配置文件
       knife4j-aggregatio: share-config-knife4j-aggregatio.yaml
       knife4j-aggregatio-group: ${variableBase.nacos.group.share}
       knife4j-aggregatio-refresh: ${variableBase.nacos.other.refresh}
+      # 共享配置：端点调试配置文件
+      actuator: share-actuator.yaml
+      actuator-group: ${variableBase.nacos.group.share}
+      actuator-refresh: ${variableBase.nacos.other.refresh}
+      # 共享配置：日志模块配置文件
+      log: logback-spring.xml
+      log-group: ${variableBase.nacos.group.share}
+      log-refresh: ${variableBase.nacos.other.refresh}
       # 共享配置：mybatis-plus 配置文件
       mybatis: share-mybatis-plus.yaml
       mybatis-group: ${variableBase.nacos.group.share}
       mybatis-refresh: ${variableBase.nacos.other.refresh}
-      # platform：当前服务配置：演示案例模块配置
-      demo: platform-backend-demo-service.yaml
-      demo-group: ${variableBase.nacos.group.onlyService}
-      demo-refresh: ${variableBase.nacos.other.refresh}
-      # api：当前服务配置：单点登陆模块配置
-      sso: api-sso-service.yaml
-      sso-group: ${variableBase.nacos.group.onlyService}
-      sso-refresh: ${variableBase.nacos.other.refresh}
-      # plugin：当前服务配置：聚合文档模块配置
+      # plugin：当前服务配置：聚合文档模块配置文件
       doc: plugin-doc-service.yaml
       doc-group: ${variableBase.nacos.group.onlyService}
       doc-refresh: ${variableBase.nacos.other.refresh}
-      # system：当前服务配置：当前服务配置：springCloud Gateway 模块配置
+      # system：当前服务配置：当前服务配置：springCloud Gateway 模块配置文件
       gateway: system-cloud-gateway-service.yaml
       gateway-group: ${variableBase.nacos.group.onlyService}
       gateway-refresh: ${variableBase.nacos.other.refresh}
+      # api：当前服务配置：单点登陆模块配置文件
+      sso: api-sso-service.yaml
+      sso-group: ${variableBase.nacos.group.onlyService}
+      sso-refresh: ${variableBase.nacos.other.refresh}
+      # platform：当前服务配置：演示案例模块配置文件
+      demo: platform-backend-demo-service.yaml
+      demo-group: ${variableBase.nacos.group.onlyService}
+      demo-refresh: ${variableBase.nacos.other.refresh}
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:
-      # 默认配置：基础配置（常用）
+      # 默认配置：基础配置文件（常用）
       base: extension-config-base.yaml
       base-group: ${variableBase.nacos.group.default}
       base-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库配置：连接地址配置（常用）
+      # 数据库配置：连接地址配置文件（常用）
       database: extension-config-database.yaml
       database-group: ${variableBase.nacos.group.database}
       database-refresh: ${variableBase.nacos.other.refresh}
-      # 数据库配置：数据库连接池地址配置（共享）
+      # 数据库配置：数据库连接池地址配置文件（共享）
       druid: share-datasource.yaml
       druid-group: ${variableBase.nacos.group.database}
       druid-refresh: ${variableBase.nacos.other.refresh}

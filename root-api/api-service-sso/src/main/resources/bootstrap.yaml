@@ -46,11 +46,19 @@ spring:
           - data-id: ${configs.nacos.shared.mybatis}
             group: ${configs.nacos.shared.mybatis-group}
             refresh: ${configs.nacos.shared.mybatis-refresh}
-          # 数据库配置：数据库连接池参数配置（共享）
+          # 共享配置：端点调试配置文件
+          - data-id: ${configs.nacos.shared.actuator}
+            group: ${configs.nacos.shared.actuator-group}
+            refresh: ${configs.nacos.shared.actuator-refresh}
+          # 共享配置：日志模块配置文件
+#          - data-id: ${configs.nacos.shared.log}
+#            group: ${configs.nacos.shared.log-group}
+#            refresh: ${configs.nacos.shared.log-refresh}
+          # 数据库配置：数据库连接池参数配置文件（共享）
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # 数据库配置：单点登陆模块配置 platform-sso-service
+          # 当前服务配置：单点登陆模块配置文件 platform-sso-service
           - data-id: ${configs.nacos.shared.sso}
             group: ${configs.nacos.shared.sso-group}
             refresh: ${configs.nacos.shared.sso-refresh}

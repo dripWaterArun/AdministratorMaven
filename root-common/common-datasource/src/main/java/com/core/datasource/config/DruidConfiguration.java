@@ -2,11 +2,8 @@ package com.core.datasource.config;
 
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,6 +15,7 @@ import java.sql.SQLException;
  * @author daixu
  * @date 2021-06-28
  */
+@RefreshScope
 @Configuration
 public class DruidConfiguration {
 
@@ -124,6 +122,7 @@ public class DruidConfiguration {
   private String connectionProperties;
 
   @Bean
+  @RefreshScope
   public DruidDataSource druidDataSource() {
     DruidDataSource datasource = new DruidDataSource();
     datasource.setUrl(url);
@@ -140,6 +139,7 @@ public class DruidConfiguration {
     datasource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
     datasource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
     datasource.setValidationQuery(validationQuery);
+    datasource.setValidationQuery("SELECT 1");
     datasource.setTestWhileIdle(testWhileIdle);
     datasource.setTestOnBorrow(testOnBorrow);
     datasource.setTestOnReturn(testOnReturn);

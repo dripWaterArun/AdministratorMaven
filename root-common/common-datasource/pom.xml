@@ -20,6 +20,13 @@
             <optional>true</optional>
         </dependency>
 
+        <!--注册中心 Nacos-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!-- MySql Driver  MySql驱动-->
         <dependency>
             <groupId>mysql</groupId>

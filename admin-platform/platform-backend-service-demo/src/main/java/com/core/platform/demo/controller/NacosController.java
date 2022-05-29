@@ -17,7 +17,7 @@ public class NacosController {
 //    @Value("${your.configuration}")
 //    private String useLocalCache;
 //
-    @Value("${knife4j.basic.username}")
+    @Value("${spring.druid.validationQuery}")
     private String yours;
 //
 //    @Value("${config}")

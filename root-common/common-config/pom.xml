@@ -32,6 +32,13 @@
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
+        <!-- 测试 test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <!--springboot 热部署-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -69,7 +76,6 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>${nacos.version}</version>
         </dependency>
 
         <!--解决 Nacos 总是注册到 public 命名空间-->

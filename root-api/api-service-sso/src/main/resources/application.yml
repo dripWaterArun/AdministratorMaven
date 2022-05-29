@@ -27,3 +27,11 @@ spring:
 #    health:
 #      # 健康检查 展示详情
 #      show-details: always
+
+#logging:
+#  config: classpath:logback-spring.xml
+#  level:
+#    org.srpingframework: warn
+#    com.suncnpap: debug
+#  file:
+#    path: datacenter

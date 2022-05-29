@@ -16,6 +16,9 @@ spring:
           - data-id: ${configs.nacos.extension.druid}
             group: ${configs.nacos.extension.druid-group}
             refresh: ${configs.nacos.extension.druid-refresh}
+#          - data-id: ${configs.nacos.shared.log}
+#            group: ${configs.nacos.shared.log-group}
+#            refresh: ${configs.nacos.shared.log-refresh}
 
 # 开发环境
 configs:
