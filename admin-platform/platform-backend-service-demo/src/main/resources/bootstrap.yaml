@@ -36,9 +36,9 @@ spring:
         password: ${configs.nacos.config.signIn.password}
         # 是否开启配置中心 默认 true
         enabled: true
-        #file-extension: yaml
+        # file-extension: yaml
         #默认是 spring.application.name 的值，也可以通过 prefix 来配置
-        #prefix: mybatis
+        # prefix: mybatis
         # nacos 服务发现 地址
         server-addr: ${configs.nacos.config.addr}
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来

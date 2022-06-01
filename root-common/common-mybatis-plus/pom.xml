@@ -52,13 +52,13 @@
             <properties>
                 <profileActive>dev</profileActive>
             </properties>
-<!--            <dependencies>-->
-<!--                &lt;!&ndash;p6spy 组件 执行 SQL 分析打印&ndash;&gt;-->
-<!--                <dependency>-->
-<!--                    <groupId>com.github.gavlyukovskiy</groupId>-->
-<!--                    <artifactId>p6spy-spring-boot-starter</artifactId>-->
-<!--                </dependency>-->
-<!--            </dependencies>-->
+            <dependencies>
+                <!--p6spy 组件 执行 SQL 分析打印-->
+                <dependency>
+                    <groupId>com.github.gavlyukovskiy</groupId>
+                    <artifactId>p6spy-spring-boot-starter</artifactId>
+                </dependency>
+            </dependencies>
         </profile>
 
         <!-- 测试环境 -->
