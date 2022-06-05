@@ -16,7 +16,7 @@ server:
 spring:
   application:
     #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
-    name: ${variableBase.service.application.name.platform.demo}
+    name: platform-backend-service-demo
   profiles:
     #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境 host：本地环境）
     active: @profileActive@

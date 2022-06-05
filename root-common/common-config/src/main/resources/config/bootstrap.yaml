@@ -81,30 +81,12 @@ variableBase:
   # 服务
   service:
     application:
-      # 服务名称
-      name:
-        # 共通 api 服务
-        api:
-          # 单点登陆模块
-          sso: api-service-sso
-        # 插件服务
-        plugin:
-          # 聚合文档模块
-          doc: plugin-service-doc
-        # 平台服务
-        platform:
-          # 案例展示模块
-          demo: platform-backend-service-demo
-        # 系统服务
-        system:
-          # gateway 网关模块
-          gateway: system-cloud-service-gateway
       group:
         dev: config,dev
         prod: config,prod
         test: config,test
-        localhost: config
-        localhostData: config,database
+        localhost: config,host
+        localhostData: config,host,database
 
 # Nacos 配置管理
 configs:
