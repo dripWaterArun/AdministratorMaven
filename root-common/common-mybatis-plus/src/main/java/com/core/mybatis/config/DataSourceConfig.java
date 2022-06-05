@@ -14,23 +14,23 @@ import javax.sql.DataSource;
  * @author daixu
  * @date 2021-06-28
  */
-@Configuration
+//@Configuration
 public class DataSourceConfig {
 
-    @Resource
-    private DruidConfiguration dataSourceConfig;
-
-    @Bean(name="dataSource")
-    @ConfigurationProperties(prefix="spring.datasource")
-    public DataSource dataSource(){
-        return dataSourceConfig.druidDataSource();
-    }
-
-    /**
-     * 配置事物管理器
-     */
-    @Bean(name="transactionManager")
-    public DataSourceTransactionManager transactionManager(){
-        return new DataSourceTransactionManager(dataSource());
-    }
+//    @Resource
+//    private DruidConfiguration dataSourceConfig;
+//
+//    @Bean(name="dataSource")
+//    @ConfigurationProperties(prefix="spring.datasource")
+//    public DataSource dataSource(){
+//        return dataSourceConfig.druidDataSource();
+//    }
+//
+//    /**
+//     * 配置事物管理器
+//     */
+//    @Bean(name="transactionManager")
+//    public DataSourceTransactionManager transactionManager(){
+//        return new DataSourceTransactionManager(dataSource());
+//    }
 }

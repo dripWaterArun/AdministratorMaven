@@ -22,6 +22,7 @@
         <module>common-datasource</module>
         <module>common-dataconfig</module>
         <module>common-doc</module>
+        <module>common-base</module>
     </modules>
 
     <dependencyManagement>

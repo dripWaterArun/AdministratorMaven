@@ -11,8 +11,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @author daixu
  * @date 2022-05-13 09:45
  */
-@EnableAsync
-@EnableFeignClients
+//@EnableAsync
+//@EnableFeignClients
 @EnableCustomSwagger2
 @SpringBootApplication
 public class PluginServiceDocApplication {

@@ -13,17 +13,10 @@
 
     <dependencies>
 
-        <!--Spring Boot Web Starter springMvc整合 -->
+        <!--Spring Boot Web Starter springMvc 整合 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!--注册中心 Nacos-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <optional>true</optional>
         </dependency>
 
@@ -36,7 +29,8 @@
         <!--Alibaba DataBase Connection Pool 阿里巴巴的数据库连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.9</version>
         </dependency>
 
     </dependencies>

@@ -38,8 +38,6 @@
 
     <!-- 自定义属性标签 统一管理jar包版本 -->
     <properties>
-<!--        <p6spy.version>3.8.7</p6spy.version>-->
-        <druid.version>1.2.9</druid.version>
         <lombok.version>1.16.10</lombok.version>
         <rocketmq.version>2.1.1</rocketmq.version>
         <fastjson.version>1.2.47</fastjson.version>
@@ -54,12 +52,11 @@
         <knife4j-springboot.version>3.0.3</knife4j-springboot.version>
         <knife4j-aggregation.version>2.0.9</knife4j-aggregation.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<!--        <swagger2-annotations.version>1.5.22</swagger2-annotations.version>-->
         <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <springboot-validation.version>2.6.7</springboot-validation.version>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+        <druid-spring-boot-starter.version>1.2.9</druid-spring-boot-starter.version>
         <p6spy-spring-boot-starter.version>1.8.0</p6spy-spring-boot-starter.version>
-
     </properties>
 
     <!--依赖的顺序，越靠前面优先级越高-->
@@ -92,23 +89,11 @@
             </dependency>
 
             <!--Alibaba DataBase Connection Pool 阿里巴巴的数据库连接池-->
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba</groupId>-->
-<!--                <artifactId>druid</artifactId>-->
-<!--                <version>${druid.version}</version>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
-                <version>1.2.9</version>
+                <version>${druid-spring-boot-starter.version}</version>
             </dependency>
-
-            <!--p6spy 组件 执行 SQL 分析打印-->
-<!--            <dependency>-->
-<!--                <groupId>p6spy</groupId>-->
-<!--                <artifactId>p6spy</artifactId>-->
-<!--                <version>${p6spy.version}</version>-->
-<!--            </dependency>-->
 
             <!--p6spy 组件 执行 SQL 分析打印-->
             <dependency>
@@ -118,27 +103,12 @@
             </dependency>
 
             <!-- ################ mybatis-plus start ################ -->
-            <!--idea中下载Mybatis Plugin插件-->
-            <!--mybatis-plus-->
-<!--            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
-                <version>${mybatis.plus.version}</version>
-            </dependency>-->
-
             <!--mybatis-plus整合spring-boot-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-
-            <!-- mybatis plus 代码生成器依赖 -->
-<!--            <dependency>-->
-<!--                <groupId>com.baomidou</groupId>-->
-<!--                <artifactId>mybatis-plus-generator</artifactId>-->
-<!--                <version>${mybatis.plus.version}</version>-->
-<!--            </dependency>-->
 
             <!-- mybatis plus 代码生成器模板 -->
             <dependency>
@@ -196,19 +166,6 @@
                 <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
                 <version>${knife4j-aggregation.version}</version>
             </dependency>
-
-            <!--防止swagger2 报错 Illegal DefaultValue null for parameter type integer-->
-<!--            <dependency>-->
-<!--                <groupId>io.swagger</groupId>-->
-<!--                <artifactId>swagger-annotations</artifactId>-->
-<!--                <version>${swagger2.annotations.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>io.swagger</groupId>-->
-<!--                <artifactId>swagger-models</artifactId>-->
-<!--                <version>${swagger2.annotations.version}</version>-->
-<!--            </dependency>-->
-            <!-- swagger 在线接口文档 end -->
 
             <!--Activiti 7-->
             <dependency>

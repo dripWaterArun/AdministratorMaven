@@ -16,9 +16,6 @@ spring:
           - data-id: ${configs.nacos.extension.druid}
             group: ${configs.nacos.extension.druid-group}
             refresh: ${configs.nacos.extension.druid-refresh}
-#          - data-id: ${configs.nacos.shared.log}
-#            group: ${configs.nacos.shared.log-group}
-#            refresh: ${configs.nacos.shared.log-refresh}
 
 # 开发环境
 configs:
@@ -29,9 +26,9 @@ configs:
       # 登录账号密码
       signIn:
         # 用户名
-        username: ${variableBase.nacos.signIn.dev.username}
+        username: ${variableBase.nacos.auth.dev.username}
         # 密码
-        password: ${variableBase.nacos.signIn.dev.password}
+        password: ${variableBase.nacos.auth.dev.password}
       # nacos 配置中心 地址
       addr: ${variableBase.nacos.addr.dev}
       # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来

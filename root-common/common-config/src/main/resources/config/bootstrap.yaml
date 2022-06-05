@@ -1,3 +1,5 @@
+################################### 共享变量配置 ###################################
+
 # 项目相关配置
 project:
   #名称
@@ -28,7 +30,7 @@ variableBase:
       # 数据库相关配置
       database: DATABASE_GROUP
       # 当前服务相关配置
-      onlyService: ONLY_SERVICE_GROUP
+      service: SERVICE_GROUP
     #地址
     addr:
       # 开发环境
@@ -51,8 +53,8 @@ variableBase:
       dev: A03-AdministratorMaven-Dev
       # 本地环境（本人中文名或英文名）${LOCALHOST_NAME:host}
       host: A04-AdministratorMaven-DaiXu
-    # 登录
-    signIn:
+    # 鉴权
+    auth:
       # 公共环境
       public:
         username: nacos
@@ -76,6 +78,33 @@ variableBase:
     other:
       # 配置是否自动刷新
       refresh: true
+  # 服务
+  service:
+    application:
+      # 服务名称
+      name:
+        # 共通 api 服务
+        api:
+          # 单点登陆模块
+          sso: api-service-sso
+        # 插件服务
+        plugin:
+          # 聚合文档模块
+          doc: plugin-service-doc
+        # 平台服务
+        platform:
+          # 案例展示模块
+          demo: platform-backend-service-demo
+        # 系统服务
+        system:
+          # gateway 网关模块
+          gateway: system-cloud-service-gateway
+      group:
+        dev: config,dev
+        prod: config,prod
+        test: config,test
+        localhost: config
+        localhostData: config,database
 
 # Nacos 配置管理
 configs:
@@ -110,22 +139,6 @@ configs:
       mybatis: share-mybatis-plus.yaml
       mybatis-group: ${variableBase.nacos.group.share}
       mybatis-refresh: ${variableBase.nacos.other.refresh}
-      # plugin：当前服务配置：聚合文档模块配置文件
-      doc: plugin-doc-service.yaml
-      doc-group: ${variableBase.nacos.group.onlyService}
-      doc-refresh: ${variableBase.nacos.other.refresh}
-      # system：当前服务配置：当前服务配置：springCloud Gateway 模块配置文件
-      gateway: system-cloud-gateway-service.yaml
-      gateway-group: ${variableBase.nacos.group.onlyService}
-      gateway-refresh: ${variableBase.nacos.other.refresh}
-      # api：当前服务配置：单点登陆模块配置文件
-      sso: api-sso-service.yaml
-      sso-group: ${variableBase.nacos.group.onlyService}
-      sso-refresh: ${variableBase.nacos.other.refresh}
-      # platform：当前服务配置：演示案例模块配置文件
-      demo: platform-backend-demo-service.yaml
-      demo-group: ${variableBase.nacos.group.onlyService}
-      demo-refresh: ${variableBase.nacos.other.refresh}
     ################### 基础配置文件 ###################
     # 优先级大于 shared-configs，在 shared-configs 之后加载
     extension:

@@ -1,10 +1,3 @@
-#bootstrap.yml 配置文件加载顺序优先于application.yml，用于配置不常改动的内容
-
-#变量名配置（读取环境变量）
-config:
-  app_name: ${LOCALHOST_NAME:pro}
-  application_name: api-service-sso-${config.app_name}
-
 #端口号
 server:
   port: 9090
@@ -12,16 +5,16 @@ server:
 spring:
   application:
     #服务名称尽量用 ‘-’ ，不要用 ‘—’，不要用特殊字符
-    name: ${config.application_name}
+    name: ${variableBase.service.application.name.api.sso}
   profiles:
     #读取 pom 文件中的环境变量 （dev：开发环境  prod：生产环境 test 测试环境 host：本地环境）
     active: @profileActive@
     # 配置文件加载分组
     group:
-      dev: sharedVariable,config,dev
-      prod: sharedVariable,config,prod
-      test: sharedVariable,config,test
-      host: sharedVariable,config,datahost
+      dev: ${variableBase.service.application.group.dev}
+      prod: ${variableBase.service.application.group.prod}
+      test: ${variableBase.service.application.group.test}
+      host: ${variableBase.service.application.group.localhostData}
 
   cloud:
     nacos:
@@ -36,6 +29,12 @@ spring:
         server-addr: ${configs.nacos.config.addr}
         # 命名空间，要先在 nacos 中配置好，然后把 uuid 粘贴过来
         namespace: ${configs.nacos.config.namespace}
+        # 读取配置文件：默认是 spring.application.name 的值，也可以通过 prefix 来配置
+        file-extension: yaml
+        # 服务分组
+        group: ${variableBase.nacos.group.service}
+        # 动态刷新
+        refresh: ${variableBase.nacos.other.refresh}
         # 用于共享的配置文件
         shared-configs:
           # 共享配置：knife4j 在线文档 配置文件
@@ -50,15 +49,7 @@ spring:
           - data-id: ${configs.nacos.shared.actuator}
             group: ${configs.nacos.shared.actuator-group}
             refresh: ${configs.nacos.shared.actuator-refresh}
-          # 共享配置：日志模块配置文件
-#          - data-id: ${configs.nacos.shared.log}
-#            group: ${configs.nacos.shared.log-group}
-#            refresh: ${configs.nacos.shared.log-refresh}
           # 数据库配置：数据库连接池参数配置文件（共享）
           - data-id: ${configs.nacos.shared.druid}
             group: ${configs.nacos.shared.druid-group}
             refresh: ${configs.nacos.shared.druid-refresh}
-          # 当前服务配置：单点登陆模块配置文件 platform-sso-service
-          - data-id: ${configs.nacos.shared.sso}
-            group: ${configs.nacos.shared.sso-group}
-            refresh: ${configs.nacos.shared.sso-refresh}
