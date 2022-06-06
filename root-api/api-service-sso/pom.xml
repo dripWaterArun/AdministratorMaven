@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <description>api 单点登录模块</description>
     <artifactId>api-service-sso</artifactId>
 
     <dependencies>

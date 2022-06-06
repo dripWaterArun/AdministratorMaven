@@ -40,6 +40,7 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
+
         <!-- 解决 springboot 升级到2.6.x之后，knife4j与actuator 冲突问题 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

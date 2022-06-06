@@ -45,3 +45,24 @@ spring:
           - data-id: ${configs.nacos.shared.knife4j-aggregatio}
             group: ${configs.nacos.shared.knife4j-aggregatio-group}
             refresh: ${configs.nacos.shared.knife4j-aggregatio-refresh}
+
+#  nacos:
+#    serviceUrl: http://123.56.31.57:8848/nacos/
+#    namespaceId: A03-AdministratorMaven-Dev
+#    serviceAuth:
+#      enable: true
+#      username: nacos
+#      password: nacos
+#    routes:
+#      - name: 聚合文档模块
+#        serviceName: plugin-service-doc
+#        namespaceId: A03-AdministratorMaven-Dev
+#        groupName: DEFAULT_GROUP
+#        location: /v3/api-docs?group=default
+#        servicePath: /
+#        clusters: DEFAULT
+#        swaggerVersion: 2.0
+#        serviceAuth:
+#          enable: true
+#          username: nacos
+#          password: nacos

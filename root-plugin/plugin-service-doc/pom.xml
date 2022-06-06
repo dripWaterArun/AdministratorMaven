@@ -9,6 +9,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <description>聚合文档模块</description>
     <artifactId>plugin-service-doc</artifactId>
 
     <properties>

@@ -11,6 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <description>插件模块</description>
+
     <modules>
         <module>plugin-service-doc</module>
     </modules>
